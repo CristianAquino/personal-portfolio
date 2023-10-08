@@ -10,5 +10,5 @@ export const SERVICE_ROUTE = {
   ADDPRODUCT: "/addproduct",
 };
 export const PROYECTS_ROUTE = {
-  ECOMMERS: "/ecommers",
+  ECOMMERCE: "/ecommerce",
 };
