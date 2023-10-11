@@ -8,6 +8,7 @@
 :root {
   color-scheme: light dark;
   --darkMode: #242424;
+  --darkColor: rgba(255, 255, 255, 0.87);
   --blue: #0071ce;
   /* https://web.dev/i18n/es/prefers-color-scheme/ */
 }
