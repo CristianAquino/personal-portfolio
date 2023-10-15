@@ -22,4 +22,5 @@ export interface Product {
   slug: string;
   stock: number;
   price: number;
+  quantity: number;
 }
