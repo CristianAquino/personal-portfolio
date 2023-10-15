@@ -5,3 +5,5 @@ export * from "./Panel";
 export * from "./CardProduct";
 export * from "./Products";
 export * from "./GridProducts";
+export * from "./Cart";
+export * from "./CartProduct";
