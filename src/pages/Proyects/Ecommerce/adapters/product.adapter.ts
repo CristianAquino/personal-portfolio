@@ -12,6 +12,7 @@ function productData(data: ProductData) {
     slug: data.slug,
     stock: data.unitInStock,
     price: data.unitPrice,
+    quantity: 0,
   };
 }
 
