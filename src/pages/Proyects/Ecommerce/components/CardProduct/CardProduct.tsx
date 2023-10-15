@@ -1,4 +1,6 @@
 import { unitDecimal } from "../../../../../helpers";
+import { useCustomerContext } from "../../../../../hooks/useCustomerContext";
+import { CartContext } from "../../context/CartContext";
 import { Product } from "../../models";
 
 export type CardProductProps = {
@@ -6,6 +8,7 @@ export type CardProductProps = {
 };
 
 const CardProduct = ({ product }: CardProductProps) => {
+  const { addToCart } = useCustomerContext(CartContext);
   const newPrice = unitDecimal(product.price);
   return (
     <div
@@ -70,6 +73,7 @@ const CardProduct = ({ product }: CardProductProps) => {
           cursor: "pointer",
           width: "100%",
         }}
+        onClick={() => addToCart(product)}
       >
         agregar al carrito
       </button>

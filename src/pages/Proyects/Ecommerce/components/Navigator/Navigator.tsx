@@ -1,3 +1,4 @@
+import { BsCart } from "react-icons/bs";
 export type NavigatorProps = {};
 
 const Navigator = ({}: NavigatorProps) => {
@@ -26,8 +27,14 @@ const Navigator = ({}: NavigatorProps) => {
           height: "100px",
           background: "#15DBFF",
           borderRadius: "8px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          fontSize: "5rem",
         }}
-      ></div>
+      >
+        <BsCart />
+      </div>
     </nav>
   );
 };
