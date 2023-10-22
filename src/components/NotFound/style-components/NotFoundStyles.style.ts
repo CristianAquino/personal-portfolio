@@ -8,7 +8,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  font-size: 200px;
+  font-size: clamp(5rem, 1rem + 10vw, 200px);
   gap: 0.1em;
 `;
 
