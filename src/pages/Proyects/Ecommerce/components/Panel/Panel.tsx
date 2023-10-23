@@ -17,7 +17,12 @@ const Panel = ({}: PanelProps) => {
     >
       <img
         src={imgCategory}
-        style={{ position: "absolute", right: "0", top: "0", height: "100%" }}
+        style={{
+          position: "absolute",
+          right: "0",
+          top: "0",
+          height: "100%",
+        }}
         alt=""
       />
       <p style={{ position: "absolute", left: "16px", bottom: "16px" }}>
