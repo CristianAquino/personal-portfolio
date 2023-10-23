@@ -10,5 +10,9 @@
   --darkMode: #242424;
   --darkColor: rgba(255, 255, 255, 0.87);
   --blue: #0071ce;
+  --brand: #4c6980;
+  --nameP: #002849;
+  --primary: #15dbff;
+  --dsc: #ffad48;
   /* https://web.dev/i18n/es/prefers-color-scheme/ */
 }
