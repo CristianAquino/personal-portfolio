@@ -1,7 +1,13 @@
 import { BsCart } from "react-icons/bs";
+import { ButtonCart } from "../../styles";
+import { openCart } from "../../services";
 export type NavigatorProps = {};
 
 const Navigator = ({}: NavigatorProps) => {
+  const handldeOpenCart = () => {
+    openCart.setSubject(true);
+  };
+
   return (
     <nav
       style={{
@@ -21,20 +27,9 @@ const Navigator = ({}: NavigatorProps) => {
           borderRadius: "50%",
         }}
       ></div>
-      <div
-        style={{
-          width: "100px",
-          height: "100px",
-          background: "#15DBFF",
-          borderRadius: "8px",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          fontSize: "5rem",
-        }}
-      >
+      <ButtonCart onClick={handldeOpenCart}>
         <BsCart />
-      </div>
+      </ButtonCart>
     </nav>
   );
 };
