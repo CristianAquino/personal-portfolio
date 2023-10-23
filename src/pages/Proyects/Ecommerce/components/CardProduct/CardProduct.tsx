@@ -2,6 +2,13 @@ import { unitDecimal } from "../../../../../helpers";
 import { useCustomerContext } from "../../../../../hooks/useCustomerContext";
 import { CartContext } from "../../context/CartContext";
 import { Product } from "../../models";
+import { ButtonAddToCart } from "../../styles";
+import {
+  BrandProduct,
+  CartToProduct,
+  NameProduct,
+  PriceProduct,
+} from "../../styles/Product.style";
 
 export type CardProductProps = {
   product: Product;
@@ -11,73 +18,28 @@ const CardProduct = ({ product }: CardProductProps) => {
   const { addToCart } = useCustomerContext(CartContext);
   const newPrice = unitDecimal(product.price);
   return (
-    <div
-      style={{
-        width: "100%",
-        padding: "16px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        border: "1px solid #15DBFF",
-        borderRadius: "8px",
-      }}
-    >
-      <div style={{ width: "100%", borderRadius: "8px", overflow: "hidden" }}>
-        <img
-          //   src="https://www.efe.com.pe/media/catalog/product/h/e/heg-s-kaaaa_1_aahzfe40jvrthydy.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700"
-          // src="https://i.dummyjson.com/data/products/6/1.png"
-          src={product.image}
-          alt={product.name}
-          style={{ width: "100%", borderRadius: "8px" }}
-        />
-      </div>
-      <div style={{ padding: "8px 0" }}>
-        <p
-          style={{
-            color: "#4C6980",
-            fontSize: "12px",
-            textTransform: "uppercase",
-          }}
-        >
-          {product.brand}
-        </p>
-        <p
-          style={{
-            color: "#002849",
-            fontSize: "16px",
-            textTransform: "capitalize",
-            fontWeight: "bold",
-          }}
-        >
-          {product.name}
-        </p>
-        <p
-          style={{
-            color: "var(--blue)",
-            fontSize: "16px",
-            textTransform: "uppercase",
-            fontWeight: "700",
-          }}
-        >
-          s/. {newPrice}
-        </p>
-      </div>
-      <button
+    <CartToProduct>
+      {/* <CartToProduct data-parent={product.dsc}> */}
+      <img
+        src={product.image}
+        alt={product.name}
         style={{
-          padding: "16px",
-          background: "#15DBFF",
-          borderRadius: "8px",
-          fontSize: "1rem",
-          border: "none",
-          textTransform: "uppercase",
-          cursor: "pointer",
           width: "100%",
+          borderRadius: "8px",
+          maxHeight: "232px",
+          objectFit: "cover",
+          objectPosition: "center",
         }}
-        onClick={() => addToCart(product)}
-      >
+      />
+      <div style={{ padding: "8px 0" }}>
+        <BrandProduct>{product.brand}</BrandProduct>
+        <NameProduct>{product.name}</NameProduct>
+        <PriceProduct>s/. {newPrice}</PriceProduct>
+      </div>
+      <ButtonAddToCart onClick={() => addToCart(product)}>
         agregar al carrito
-      </button>
-    </div>
+      </ButtonAddToCart>
+    </CartToProduct>
   );
 };
 
