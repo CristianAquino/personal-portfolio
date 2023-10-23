@@ -1,25 +1,40 @@
-import { Button, CartProduct } from "..";
+import { useEffect, useState } from "react";
+import { AiOutlineInfoCircle } from "react-icons/ai";
+import { CartProduct } from "..";
 import { useCustomerContext } from "../../../../../hooks/useCustomerContext";
 import { CartContext } from "../../context/CartContext";
-import { AiOutlineInfoCircle } from "react-icons/ai";
+import { openCart } from "../../services";
+import { ButtonClose, ButtonNavigate as ButtonGoPay } from "../../styles";
 
 export type CartProps = {};
 
 const Cart = ({}: CartProps) => {
   const { cart } = useCustomerContext(CartContext);
+  const [open, setOpen] = useState(false);
+  const subscription = openCart.getSubject();
+
+  const handldeCloseCart = () => {
+    openCart.setSubject(false);
+  };
+
+  useEffect(() => {
+    subscription.subscribe((data) => {
+      data ? setOpen(true) : setOpen(false);
+    });
+  }, []);
 
   return (
     <div
       style={{
-        borderTop: "1px solid #15DBFF",
+        borderTop: "1px solid var(--primary)",
         width: "40%",
         position: "absolute",
         right: 0,
         top: "160px",
-        zIndex: 2,
+        zIndex: 5,
         borderRadius: "0 0 8px 8px",
         padding: "16px",
-        display: "flex",
+        display: `${open ? "flex" : "none"}`,
         gap: "16px",
         flexDirection: "column",
         background: "#fff",
@@ -27,6 +42,7 @@ const Cart = ({}: CartProps) => {
         overflowY: "scroll",
       }}
     >
+      <ButtonClose onClick={handldeCloseCart}>x</ButtonClose>
       {cart.length == 0 ? (
         <div
           style={{ color: "#c4c4c4", textAlign: "center", fontSize: "16px" }}
@@ -70,7 +86,7 @@ const Cart = ({}: CartProps) => {
               {cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0)}
             </p>
           </div>
-          <Button>ir a pagar</Button>
+          <ButtonGoPay>ir a pagar</ButtonGoPay>
         </>
       )}
     </div>
