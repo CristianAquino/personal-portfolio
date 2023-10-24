@@ -24,7 +24,7 @@ dependencies:
     specifier: 6.16.0
     version: 6.16.0(react-dom@18.2.0)(react@18.2.0)
   rxjs:
-    specifier: ^7.8.1
+    specifier: 7.8.1
     version: 7.8.1
   styled-components:
     specifier: 6.0.8
