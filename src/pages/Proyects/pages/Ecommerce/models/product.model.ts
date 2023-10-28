@@ -13,14 +13,14 @@ export interface ProductData {
 }
 export interface Product {
   brand: string;
-  category: string;
-  date: string;
+  // category: string;
+  // date: string;
   description: string;
   id: string;
   image: string;
   name: string;
-  slug: string;
-  stock: number;
-  price: number;
+  // slug: string;
+  // stock: number;
+  unitPrice: number;
   quantity: number;
 }
