@@ -1,26 +1,21 @@
-import { Suspense, lazy, useEffect } from "react";
-import { Navigator, Panel, Products } from "./components";
-import { CartProvider } from "./context/CartContext";
-const Cart = lazy(() => import("./components/Cart/Cart"));
+import { Route } from "react-router-dom";
+import { RoutesWithNotFound } from "../../../../helpers";
+import { PROYECTS_ROUTE, PUBLIC_ROUTE } from "../../../../routes";
+import { Home, LayoutEcomerce, CartList } from "./components";
 
 export type EcommerceProps = {};
 
 const Ecommerce = ({}: EcommerceProps) => {
-  useEffect(() => {
-    const root = document.getElementById("root") as HTMLElement;
-    root.style.background = "#fff";
-  }, []);
   return (
-    <CartProvider>
-      <div style={{ width: "100%", height: "100%", position: "relative" }}>
-        <Navigator />
-        <Suspense fallback={<div>Loading...</div>}>
-          <Cart />
-        </Suspense>
-        <Panel />
-        <Products />
-      </div>
-    </CartProvider>
+    <RoutesWithNotFound
+      message="Page not found"
+      pageRedirect={PUBLIC_ROUTE.PROYECTS + PROYECTS_ROUTE.ECOMMERCE}
+    >
+      <Route path={`${PUBLIC_ROUTE.HOME}`} element={<LayoutEcomerce />}>
+        <Route index element={<Home />} />
+        <Route path="cart" element={<CartList />} />
+      </Route>
+    </RoutesWithNotFound>
   );
 };
 

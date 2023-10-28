@@ -16,7 +16,7 @@ export type CardProductProps = {
 
 const CardProduct = ({ product }: CardProductProps) => {
   const { addToCart } = useCustomerContext(CartContext);
-  const newPrice = unitDecimal(product.price);
+  const newPrice = unitDecimal(product.unitPrice);
   return (
     <CartToProduct>
       {/* <CartToProduct data-parent={product.dsc}> */}
