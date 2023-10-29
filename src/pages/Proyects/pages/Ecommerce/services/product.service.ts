@@ -1,4 +1,4 @@
-import { SERVICE_ROUTE } from "../../../../../routes";
+import { SERVICE_ROUTE } from "@routes/index";
 import { productData } from "../adapters";
 import { ProductData } from "../models";
 

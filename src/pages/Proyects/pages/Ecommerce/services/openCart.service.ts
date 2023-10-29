@@ -1,3 +1,3 @@
-import { SubjectManager } from "../../../../../helpers";
+import { SubjectManager } from "@helpers/index";
 
 export const openCart = new SubjectManager();

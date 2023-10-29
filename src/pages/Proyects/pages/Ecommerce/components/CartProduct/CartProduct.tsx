@@ -1,5 +1,5 @@
 import { BsTrash3 } from "react-icons/bs";
-import { useCustomerContext } from "../../../../../../hooks/useCustomerContext";
+import { useCustomerContext } from "@hooks/index";
 import { CartContext } from "../../context/CartContext";
 import { Product } from "../../models";
 import { ButtonRemoveToCart } from "../../style-components";
@@ -50,7 +50,7 @@ const CartProduct = ({ product }: CartProductProps) => {
         <div style={{ position: "relative" }}>
           <BrandProduct>{product.brand}</BrandProduct>
           <NameProduct>{product.name}</NameProduct>
-          <PriceProduct>s/. {product.price}</PriceProduct>
+          <PriceProduct>s/. {product.unitPrice}</PriceProduct>
           <ButtonRemoveToCart onClick={() => removeFromCart(product)}>
             <BsTrash3 />
           </ButtonRemoveToCart>

@@ -1,6 +1,6 @@
 import { Route } from "react-router-dom";
-import { RoutesWithNotFound } from "../../helpers";
-import { PUBLIC_ROUTE } from "../../routes";
+import { RoutesWithNotFound } from "@helpers/index";
+import { PUBLIC_ROUTE } from "@routes/index";
 
 export type ComponentsProps = {};
 

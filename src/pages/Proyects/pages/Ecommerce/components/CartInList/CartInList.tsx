@@ -7,7 +7,7 @@ import {
 } from "../../style-components";
 import { Product } from "../../models";
 import { CartContext } from "../../context/CartContext";
-import { useCustomerContext } from "../../../../../../hooks/useCustomerContext";
+import { useCustomerContext } from "@hooks/index";
 
 export type CartInListProps = {
   cart: Product;

@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { CartInList } from "..";
-import { useCustomerContext } from "../../../../../../hooks/useCustomerContext";
+import { useCustomerContext } from "@hooks/index";
 import { CartContext } from "../../context/CartContext";
 import { checkout } from "../../services";
 import { ButtonNavigate } from "../../style-components";
@@ -10,8 +10,8 @@ export type CartListProps = {};
 const CartList = ({}: CartListProps) => {
   const { cart } = useCustomerContext(CartContext);
   const checkoutCart = useCallback(async () => {
-    const a = await checkout(cart);
-    console.log(a);
+    const data = await checkout(cart);
+    window.location.href = data.url;
   }, []);
   return (
     <div

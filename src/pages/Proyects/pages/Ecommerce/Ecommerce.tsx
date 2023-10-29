@@ -1,6 +1,6 @@
 import { Route } from "react-router-dom";
-import { RoutesWithNotFound } from "../../../../helpers";
-import { PROYECTS_ROUTE, PUBLIC_ROUTE } from "../../../../routes";
+import { RoutesWithNotFound } from "@helpers/index";
+import { PROYECTS_ROUTE, PUBLIC_ROUTE } from "@routes/index";
 import { Home, LayoutEcomerce, CartList } from "./components";
 
 export type EcommerceProps = {};

@@ -1,4 +1,4 @@
-import { emoticonosNotFound } from "../../helpers";
+import { emoticonosNotFound } from "@helpers/index";
 import { Container, LinkRedirect, Message } from "./style-components";
 
 export type NotFoundProps = {

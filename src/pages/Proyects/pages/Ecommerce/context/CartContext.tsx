@@ -1,7 +1,7 @@
 import { createContext, useReducer } from "react";
 import { CartProviderProps, Product } from "../models";
 import { STORE_TYPE, storeCart } from "../reducer";
-import { initialCartContext } from "../helpers/initial.helper";
+import { initialCartContext } from "../helpers";
 
 export const CartContext =
   createContext<CartProviderProps<Product>>(initialCartContext);

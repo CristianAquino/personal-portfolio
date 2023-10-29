@@ -1,4 +1,4 @@
-import { SERVICE_ROUTE } from "../../../../../routes";
+import { SERVICE_ROUTE } from "@routes/index";
 import { Product } from "../models";
 
 async function checkout(product: Product[]) {

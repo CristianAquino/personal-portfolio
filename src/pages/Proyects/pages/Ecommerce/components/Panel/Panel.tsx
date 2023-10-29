@@ -1,4 +1,4 @@
-import imgCategory from "../../../../../../assets/header-x1.jpg";
+import imgCategory from "@assets/header-x1.jpg";
 
 export type PanelProps = {};
 

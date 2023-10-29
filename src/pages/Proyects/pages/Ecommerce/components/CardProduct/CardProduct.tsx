@@ -1,5 +1,5 @@
-import { unitDecimal } from "../../../../../../helpers";
-import { useCustomerContext } from "../../../../../../hooks/useCustomerContext";
+import { unitDecimal } from "@helpers/index";
+import { useCustomerContext } from "@hooks/index";
 import { CartContext } from "../../context/CartContext";
 import { Product } from "../../models";
 import { ButtonAddToCart } from "../../style-components";

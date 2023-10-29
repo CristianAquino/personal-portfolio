@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { CartProduct } from "..";
-import { useCustomerContext } from "../../../../../../hooks/useCustomerContext";
+import { useCustomerContext } from "@hooks/index";
 import { CartContext } from "../../context/CartContext";
 import { openCart } from "../../services";
 import { ButtonClose, GoToPay } from "../../style-components";
@@ -83,7 +83,10 @@ const Cart = ({}: CartProps) => {
             <p>subtotal</p>
             <p>
               S/.{" "}
-              {cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0)}
+              {cart.reduce(
+                (acc, curr) => acc + curr.unitPrice * curr.quantity,
+                0
+              )}
             </p>
           </div>
           <GoToPay to={"cart"}>ir a pagar</GoToPay>
