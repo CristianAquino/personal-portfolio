@@ -1,5 +1,5 @@
 import { BrowserRouter, Route } from "react-router-dom";
-import { RoutesWithNotFound } from "@helpers/index";
+import { RoutesWithNotFound } from "@guards/index";
 import { PUBLIC_ROUTE } from "@routes/index";
 import { lazy } from "react";
 import "@app/App.css";
