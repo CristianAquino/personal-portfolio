@@ -14,16 +14,16 @@
   -webkit-text-size-adjust: 100%;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+body,
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 #root {
   min-width: 320px;
-  max-width: 1024px;
-  width: 1024px;
-  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (prefers-color-scheme: light) {
