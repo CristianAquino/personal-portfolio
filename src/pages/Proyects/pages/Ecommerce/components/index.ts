@@ -1,6 +1,5 @@
-export * from "./Navigator";
+export * from "./NavigatorEcomerce";
 export * from "./NavigatorProducts";
-export * from "./Panel";
 export * from "./CardProduct";
 export * from "./Products";
 export * from "./Cart";
