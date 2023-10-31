@@ -12,7 +12,9 @@ const NotFound = ({ message, pageRedirect }: NotFoundProps) => {
     <Container>
       <p>{emoticon}</p>
       <Message>{message}</Message>
-      <LinkRedirect to={pageRedirect}>Go to Page</LinkRedirect>
+      <LinkRedirect to={pageRedirect} replace>
+        Go to Home Page
+      </LinkRedirect>
     </Container>
   );
 };
