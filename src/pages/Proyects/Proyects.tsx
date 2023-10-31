@@ -1,5 +1,5 @@
 import { Route } from "react-router-dom";
-import { RoutesWithNotFound } from "@helpers/index";
+import { RoutesWithNotFound } from "@guards/index";
 import { PROYECTS_ROUTE, PUBLIC_ROUTE } from "@routes/index";
 import { Ecommerce } from "./pages/Ecommerce";
 
