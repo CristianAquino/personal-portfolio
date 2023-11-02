@@ -8,3 +8,4 @@ export * from "./LayoutEcomerce";
 export * from "./Home";
 export * from "./CartList";
 export * from "./CartInList";
+export * from "./FilterProducts";
