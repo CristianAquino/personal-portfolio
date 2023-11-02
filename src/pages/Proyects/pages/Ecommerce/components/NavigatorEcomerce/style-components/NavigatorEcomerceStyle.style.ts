@@ -2,15 +2,17 @@ import styled from "styled-components";
 
 const Header = styled.header`
   height: 96px;
-  width: calc(100% - 200px);
+  width: 90%;
   position: fixed;
-  display: grid;
-  grid-template-columns: 20% 80%;
+  display: flex;
   gap: 1rem;
-  padding: 1rem;
+  margin-inline: auto;
+  left: 0;
+  padding: 1rem 0;
+  right: 0;
+  z-index: 5;
+  background-color: #fff;
   border-bottom: 1px solid var(--primary);
-  right: 100px;
-  left: 100px;
 `;
 
 const InputSearch = styled.input`

@@ -4,8 +4,8 @@ const GridProducts = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 309px));
   grid-auto-rows: minmax(200px, 410px);
-  gap: 16px;
-  justify-content: center;
+  gap: 1rem;
+  width: 80%;
 `;
 
 const CartToProduct = styled.div`

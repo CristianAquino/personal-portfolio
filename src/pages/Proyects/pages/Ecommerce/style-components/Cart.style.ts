@@ -5,16 +5,15 @@ const Button = styled.button`
   background: #15dbff;
   border-radius: 8px;
   border: none;
-  cursor: pointer;
 `;
 
 const ButtonCart = styled(Button)`
-  width: 100px;
-  height: 100px;
+  width: 64px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 5rem;
+  font-size: 2rem;
 `;
 
 const ButtonNavigate = styled(Button)`

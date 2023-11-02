@@ -38,6 +38,9 @@ svg {
   display: block;
   max-width: 100%;
 }
+svg.cent {
+  margin-inline: auto;
+}
 :root {
   color-scheme: light dark;
   --darkMode: #242424;
