@@ -1,11 +1,10 @@
-import { Panel, Products } from "..";
+import { Products } from "..";
 
 export type HomeProps = {};
 
 const Home = ({}: HomeProps) => {
   return (
     <>
-      <Panel />
       <Products />
     </>
   );

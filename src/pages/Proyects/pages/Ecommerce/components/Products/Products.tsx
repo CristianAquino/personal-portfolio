@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavigatorProducts } from "..";
+import { NavigatorProducts, FilterProducts } from "..";
 import { Product } from "../../models";
 import { getproducts } from "../../services";
 import { GridProducts } from "../../style-components";
@@ -19,14 +19,16 @@ const Products = ({}: ProductsProps) => {
   return (
     <main
       style={{
-        width: "100%",
-        padding: "24px 32px",
+        padding: "6rem 0",
         display: "flex",
-        flexDirection: "column",
-        gap: "16px",
+        gap: "1rem",
+        alignItems: "flex-start",
+        width: "90%",
+        marginInline: "auto",
       }}
     >
-      <NavigatorProducts />
+      {/* <NavigatorProducts /> */}
+      <FilterProducts />
       <GridProducts>
         {products.length > 0 ? (
           products.map((product: Product) => (

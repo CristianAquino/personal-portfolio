@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import { Navigator } from "..";
+import { NavigatorEcomerce } from "..";
 import { CartProvider } from "../../context/CartContext";
 const Cart = lazy(() => import("../Cart/Cart"));
 
@@ -17,13 +17,11 @@ const LayoutEcomerce = ({}: LayoutEcomerceProps) => {
   }, []);
   return (
     <CartProvider>
-      <div style={{ width: "100%", height: "100%", position: "relative" }}>
-        <Navigator />
-        <Suspense fallback={<div>Loading...</div>}>
-          <Cart />
-        </Suspense>
-        <Outlet />
-      </div>
+      <NavigatorEcomerce />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Cart />
+      </Suspense>
+      <Outlet />
     </CartProvider>
   );
 };
