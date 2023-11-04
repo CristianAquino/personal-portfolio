@@ -1,60 +1,21 @@
 import { TbBrandCashapp, TbCategory } from "react-icons/tb";
+import { Link, useSearchParams } from "react-router-dom";
 import {
   Filter,
   ItemFilter,
   ListFilter,
   TitleFilter,
 } from "./styled-components";
-import { useState } from "react";
+
 export type FilterProductsProps = {};
 
 const FilterProducts = ({}: FilterProductsProps) => {
-  const [category, setCategory] = useState([
-    {
-      name: "All",
-      status: true,
-    },
-    {
-      name: "Clothes",
-      status: false,
-    },
-    {
-      name: "Shoes",
-      status: false,
-    },
-  ]);
-  const [price, setPrice] = useState([
-    {
-      name: "$0 - $50",
-      status: true,
-    },
-    {
-      name: "$50 - $100",
-      status: false,
-    },
-    {
-      name: "$100 - $150",
-      status: false,
-    },
-  ]);
-  const changeCategory = (name: string) => {
-    const nuevo = category.map((ele) => {
-      if (ele.name === name) {
-        return { ...ele, status: true };
-      }
-      return { ...ele, status: false };
-    });
-    setCategory(nuevo);
-  };
-  const changePrice = (name: string) => {
-    const nuevo = price.map((ele) => {
-      if (ele.name === name) {
-        return { ...ele, status: true };
-      }
-      return { ...ele, status: false };
-    });
-    setPrice(nuevo);
-  };
+  const categoryVarians = ["All", "Clothes", "Shoes"];
+  const priceVariants = ["$0 - $50", "$50 - $100", "$100 - $150"];
+  const [searchParams] = useSearchParams();
+  const category = searchParams.get("category") || categoryVarians[0];
+  const price = searchParams.get("price") || priceVariants[0];
+
   return (
     <Filter>
       <section>
@@ -63,15 +24,18 @@ const FilterProducts = ({}: FilterProductsProps) => {
           categories
         </TitleFilter>
         <ListFilter>
-          {category.map((item, index) => (
+          {categoryVarians.map((item, index) => (
             <ItemFilter
               key={index}
-              className={`${item.status ? "active" : ""}`}
+              className={`${item == category ? "active" : null}`}
             >
-              <label onClick={() => changeCategory(item.name)}>
+              {/* <label onClick={() => setCategory(item)}>
                 <input type="radio" name="category" hidden />
-                {item.name}
-              </label>
+                {item}
+              </label> */}
+              <Link to={`?category=${item}&price=${price}`} replace>
+                {item}
+              </Link>
             </ItemFilter>
           ))}
         </ListFilter>
@@ -82,15 +46,18 @@ const FilterProducts = ({}: FilterProductsProps) => {
           Price
         </TitleFilter>
         <ListFilter>
-          {price.map((item, index) => (
+          {priceVariants.map((item, index) => (
             <ItemFilter
               key={index}
-              className={`${item.status ? "active" : ""}`}
+              className={`${item == price ? "active" : null} `}
             >
-              <label onClick={() => changePrice(item.name)}>
+              {/* <label onClick={() => setPrice(item)}>
                 <input type="radio" name="category" hidden />
-                {item.name}
-              </label>
+                {item}
+              </label> */}
+              <Link to={`?category=${category}&price=${item}`} replace>
+                {item}
+              </Link>
             </ItemFilter>
           ))}
         </ListFilter>

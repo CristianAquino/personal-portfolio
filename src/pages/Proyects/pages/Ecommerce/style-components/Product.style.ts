@@ -2,10 +2,15 @@ import styled from "styled-components";
 
 const GridProducts = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 309px));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   grid-auto-rows: minmax(200px, 410px);
   gap: 1rem;
-  width: 80%;
+  width: 100%;
+  padding-top: 1rem;
+  @media (width<=680px) {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-auto-rows: minmax(200px, 390px);
+  }
 `;
 
 const CartToProduct = styled.div`

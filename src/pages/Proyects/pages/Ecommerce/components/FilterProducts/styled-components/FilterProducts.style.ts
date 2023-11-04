@@ -10,11 +10,14 @@ const Filter = styled.aside`
   & > section {
     padding: 1rem 0;
   }
+  @media (width<=680px) {
+    display: none;
+  }
 `;
 
 const TitleFilter = styled.h3`
   text-transform: capitalize;
-  font-size: clamp(1rem, 1rem + 2vw, 2rem);
+  font-size: clamp(1rem, 1rem + 0.7vw, 2rem);
   white-space: nowrap;
   padding-bottom: 1rem;
   & > svg {
@@ -29,17 +32,22 @@ const ListFilter = styled.ul`
   font-size: clamp(1rem, 1rem + 0.5vw, 1.5rem);
   font-weight: 500;
 `;
+// const ItemFilter = styled(Link)`
 const ItemFilter = styled.li`
   border-bottom: 1px solid var(--primary);
   &.active {
     background: var(--primary);
-    color: white;
     border-radius: 0.5rem;
     text-align: center;
   }
-  & > label {
+  &.active > a {
+    color: white;
+  }
+  & > a {
     display: block;
     padding: 1rem 0;
+    text-decoration: none;
+    color: black;
   }
 `;
-export { Filter, TitleFilter, ListFilter, ItemFilter };
+export { Filter, ItemFilter, ListFilter, TitleFilter };

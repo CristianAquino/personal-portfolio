@@ -26,7 +26,7 @@ const CardProduct = ({ product }: CardProductProps) => {
         style={{
           width: "100%",
           borderRadius: "8px",
-          maxHeight: "232px",
+          maxHeight: "208px",
           objectFit: "cover",
           objectPosition: "center",
         }}

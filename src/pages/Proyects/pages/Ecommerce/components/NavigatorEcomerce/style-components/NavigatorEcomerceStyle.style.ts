@@ -5,7 +5,7 @@ const Header = styled.header`
   width: 90%;
   position: fixed;
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   margin-inline: auto;
   left: 0;
   padding: 1rem 0;
