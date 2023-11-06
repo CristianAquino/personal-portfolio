@@ -9,6 +9,7 @@ import {
   NameProduct,
   PriceProduct,
 } from "../../style-components/Product.style";
+import { CardImageProduct } from "./styled-component";
 
 export type CardProductProps = {
   product: Product;
@@ -20,18 +21,8 @@ const CardProduct = ({ product }: CardProductProps) => {
   return (
     <CartToProduct>
       {/* <CartToProduct data-parent={product.dsc}> */}
-      <img
-        src={product.image}
-        alt={product.name}
-        style={{
-          width: "100%",
-          borderRadius: "8px",
-          maxHeight: "208px",
-          objectFit: "cover",
-          objectPosition: "center",
-        }}
-      />
-      <div style={{ padding: "8px 0" }}>
+      <CardImageProduct src={product.image} alt={product.name} />
+      <div style={{ padding: ".5rem 0" }}>
         <BrandProduct>{product.brand}</BrandProduct>
         <NameProduct>{product.name}</NameProduct>
         <PriceProduct>s/. {newPrice}</PriceProduct>
