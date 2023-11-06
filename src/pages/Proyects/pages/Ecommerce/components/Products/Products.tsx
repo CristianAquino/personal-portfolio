@@ -4,6 +4,7 @@ import { Product } from "../../models";
 import { getproducts } from "../../services";
 import { GridProducts } from "../../style-components";
 import { CardProduct } from "../CardProduct";
+import { Main } from "../../style-components/General.style";
 
 export type ProductsProps = {};
 
@@ -17,17 +18,9 @@ const Products = ({}: ProductsProps) => {
     }
     callAllProducts();
   }, []);
+
   return (
-    <main
-      style={{
-        padding: "6rem 0",
-        display: "flex",
-        gap: "2rem",
-        alignItems: "flex-start",
-        width: "90%",
-        marginInline: "auto",
-      }}
-    >
+    <Main>
       {/* <NavigatorProducts /> */}
       <FilterProducts />
       <div style={{ width: "80%" }}>
@@ -63,7 +56,7 @@ const Products = ({}: ProductsProps) => {
           )}
         </GridProducts>
       </div>
-    </main>
+    </Main>
   );
 };
 

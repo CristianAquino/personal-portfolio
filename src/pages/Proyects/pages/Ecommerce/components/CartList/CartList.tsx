@@ -4,6 +4,7 @@ import { useCustomerContext } from "@hooks/index";
 import { CartContext } from "../../context/CartContext";
 import { checkout } from "../../services";
 import { ButtonNavigate } from "../../style-components";
+import { Main } from "../../style-components/General.style";
 
 export type CartListProps = {};
 
@@ -14,12 +15,9 @@ const CartList = ({}: CartListProps) => {
     window.location.href = data.url;
   }, []);
   return (
-    <div
+    <Main
       style={{
-        padding: "24px 32px",
-        display: "flex",
         flexDirection: "column",
-        gap: "16px",
       }}
     >
       <p
@@ -28,6 +26,7 @@ const CartList = ({}: CartListProps) => {
           fontSize: "1rem",
           fontWeight: "bold",
           textTransform: "capitalize",
+          marginTop: "1rem",
         }}
       >
         hola estas a un paso de completar tu compra, pero antes te pedimos que
@@ -131,7 +130,7 @@ const CartList = ({}: CartListProps) => {
           Pagar
         </ButtonNavigate>
       </div>
-    </div>
+    </Main>
   );
 };
 
