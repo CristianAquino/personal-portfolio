@@ -21,9 +21,10 @@ const CartProduct = ({ product }: CartProductProps) => {
     <li
       style={{
         display: "flex",
-        gap: "0.5rem",
+        gap: "1rem",
         width: "100%",
-        height: "112px",
+        // height: "112px",
+        height: "160px",
       }}
     >
       <img
@@ -31,26 +32,35 @@ const CartProduct = ({ product }: CartProductProps) => {
         alt={product.name}
         style={{
           height: "100%",
-          width: "40%",
-          maxWidth: "120px",
+          // width: "40%",
+          // maxWidth: "120px",
+          maxWidth: "160px",
           objectFit: "cover",
           objectPosition: "center",
           borderRadius: "8px",
+          flexGrow: 1,
         }}
       />
       <div
         style={{
           height: "100%",
-          width: "60%",
+          // width: "60%",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
+          flexGrow: 2,
         }}
       >
         <div style={{ position: "relative" }}>
-          <BrandProduct>{product.brand}</BrandProduct>
-          <NameProduct>{product.name}</NameProduct>
-          <PriceProduct>s/. {product.unitPrice}</PriceProduct>
+          <BrandProduct style={{ fontSize: "1rem" }}>
+            {product.brand}
+          </BrandProduct>
+          <NameProduct style={{ fontSize: "1.25rem" }}>
+            {product.name}
+          </NameProduct>
+          <PriceProduct style={{ fontSize: "1.75rem" }}>
+            s/. {product.unitPrice}
+          </PriceProduct>
           <ButtonRemoveToCart onClick={() => removeFromCart(product)}>
             <BsTrash3 />
           </ButtonRemoveToCart>
@@ -61,7 +71,7 @@ const CartProduct = ({ product }: CartProductProps) => {
             border: "1px solid var(--primary)",
             borderRadius: "8px",
             display: "flex",
-            height: "34px",
+            height: "36px",
           }}
         >
           <ButtonCountProduct onClick={() => deleteOneToCart(product)}>

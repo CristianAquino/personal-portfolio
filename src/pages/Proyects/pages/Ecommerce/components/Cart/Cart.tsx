@@ -26,72 +26,100 @@ const Cart = ({}: CartProps) => {
   return (
     <div
       style={{
-        // borderTop: "1px solid var(--primary)",
-        width: "40%",
-        position: "absolute",
-        right: 0,
-        top: "160px",
-        zIndex: 5,
-        borderRadius: "0 0 8px 8px",
-        padding: "16px",
+        position: "fixed",
+        width: "100%",
+        background: "rgb(25 25 25 /0.3)",
+        zIndex: 9,
+        minHeight: "100dvh",
+        top: 0,
+        left: 0,
         display: `${open ? "flex" : "none"}`,
-        gap: "16px",
-        flexDirection: "column",
-        background: "#fff",
-        maxHeight: "100vh",
-        overflowY: "scroll",
       }}
     >
-      <ButtonClose onClick={handldeCloseCart}>x</ButtonClose>
-      {cart.length == 0 ? (
-        <div
-          style={{ color: "#c4c4c4", textAlign: "center", fontSize: "16px" }}
+      <div
+        style={{
+          width: "40%",
+          position: "absolute",
+          right: "5%",
+          top: "96px",
+          zIndex: 5,
+          borderRadius: "0 0 8px 8px",
+          padding: "16px",
+          display: `${open ? "flex" : "none"}`,
+          gap: "16px",
+          flexDirection: "column",
+          background: "#fff",
+          maxHeight: "calc(70dvh - 96px)",
+        }}
+      >
+        <ButtonClose
+          style={{
+            position: "fixed",
+            width: "40px",
+            height: "40px",
+            textAlign: "center",
+          }}
+          onClick={handldeCloseCart}
         >
-          <p>
-            <AiOutlineInfoCircle />
-            <br />
-            Usted aun no tiene productos agregados a su carrito de compras
-          </p>
-        </div>
-      ) : (
-        <>
-          <ul
-            style={{
-              listStyle: "none",
-              display: "flex",
-              flexDirection: "column",
-              gap: "16px",
-            }}
-          >
-            {cart.map((product) => (
-              <CartProduct key={product.id} product={product} />
-            ))}
-          </ul>
+          x
+        </ButtonClose>
+        {cart.length == 0 ? (
           <div
             style={{
-              display: "flex",
-              gap: "16px",
-              color: "#15DBFF",
-              textTransform: "capitalize",
-              justifyContent: "space-between",
-              width: "100%",
-              fontWeight: "bold",
-              fontSize: "1rem",
-              lineHeight: 1,
+              color: "#c4c4c4",
+              textAlign: "center",
+              fontSize: "16px",
+              marginTop: "56px",
             }}
           >
-            <p>subtotal</p>
             <p>
-              S/.{" "}
-              {cart.reduce(
-                (acc, curr) => acc + curr.unitPrice * curr.quantity,
-                0
-              )}
+              <AiOutlineInfoCircle />
+              <br />
+              Usted aun no tiene productos agregados a su carrito de compras
             </p>
           </div>
-          <GoToPay to={"cart"}>ir a pagar</GoToPay>
-        </>
-      )}
+        ) : (
+          <>
+            <ul
+              style={{
+                listStyle: "none",
+                display: "flex",
+                flexDirection: "column",
+                gap: "16px",
+                marginTop: "56px",
+                overflowY: "scroll",
+              }}
+            >
+              {cart.map((product) => (
+                <CartProduct key={product.id} product={product} />
+              ))}
+            </ul>
+            <div
+              style={{
+                display: "flex",
+                gap: "16px",
+                color: "#15DBFF",
+                textTransform: "capitalize",
+                justifyContent: "space-between",
+                width: "100%",
+                fontWeight: "bold",
+                fontSize: "1.75rem",
+                lineHeight: 1,
+              }}
+            >
+              <p>subtotal</p>
+              <p>
+                S/.{" "}
+                {cart.reduce(
+                  (acc, curr) => acc + curr.unitPrice * curr.quantity,
+                  0
+                )}
+              </p>
+            </div>
+            <GoToPay to={"cart"}>ir a pagar</GoToPay>
+          </>
+        )}
+      </div>
     </div>
   );
 };
