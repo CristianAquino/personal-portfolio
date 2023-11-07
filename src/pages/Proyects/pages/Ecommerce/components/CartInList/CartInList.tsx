@@ -1,13 +1,23 @@
+import { useCustomerContext } from "@hooks/index";
+import { useEffect } from "react";
 import { BsTrash3 } from "react-icons/bs";
+import { CartContext } from "../../context/CartContext";
+import { Product } from "../../models";
+import { openCart } from "../../services";
 import {
   BrandProduct,
   ButtonCountProduct,
   NameProduct,
   PriceProduct,
+  QuantityCart,
 } from "../../style-components";
-import { Product } from "../../models";
-import { CartContext } from "../../context/CartContext";
-import { useCustomerContext } from "@hooks/index";
+import {
+  CartInListActions,
+  CartInListActionsContent,
+  CartInListBoxImg,
+  CartInListImg,
+  CartInListLi,
+} from "./styled-component";
 
 export type CartInListProps = {
   cart: Product;
@@ -16,82 +26,48 @@ export type CartInListProps = {
 const CartInList = ({ cart }: CartInListProps) => {
   const { addToCart, deleteOneToCart, removeFromCart } =
     useCustomerContext(CartContext);
+
+  useEffect(() => {
+    const ecommerceParams = window.location.pathname.endsWith("ecommerce");
+    if (!ecommerceParams) {
+      openCart.setSubject(false);
+    }
+  }, []);
+
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "1rem",
-        color: "black",
-      }}
-    >
-      <div
+    <CartInListLi>
+      <CartInListBoxImg>
+        <CartInListImg src={cart.image} alt={cart.name} />
+      </CartInListBoxImg>
+      <div style={{ flexGrow: 2, width: "50%" }}>
+        <BrandProduct style={{ fontSize: "1rem" }}>{cart.brand}</BrandProduct>
+        <NameProduct style={{ fontSize: "1.5rem" }}>{cart.name}</NameProduct>
+      </div>
+      <PriceProduct
         style={{
-          padding: "16px 0",
-          borderBottom: "2px solid var(--primary)",
-          display: "flex",
-          width: "100%",
-          height: "162px",
-          gap: "1rem",
+          alignSelf: "center",
+          flexGrow: 1,
+          width: "10%",
         }}
       >
-        <div
-          style={{
-            maxWidth: "112px",
-            height: "100%",
-            flexGrow: 1,
-          }}
-        >
-          <img
-            src={cart.image}
-            alt={cart.name}
-            style={{ width: "100%", height: "100%", objectFit: "contain" }}
-          />
-        </div>
-        <div style={{ flexGrow: 2 }}>
-          <BrandProduct style={{ fontSize: "1rem" }}>{cart.brand}</BrandProduct>
-          <NameProduct style={{ fontSize: "1.5rem" }}>{cart.name}</NameProduct>
-        </div>
-        <PriceProduct style={{ alignSelf: "center", flexGrow: 1 }}>
-          s/. {cart.unitPrice}
-        </PriceProduct>
-        <div style={{ display: "flex", alignSelf: "center", flexGrow: 1 }}>
-          <div
-            style={{
-              width: "165px",
-              border: "1px solid var(--primary)",
-              borderRadius: "8px",
-              display: "flex",
-              height: "34px",
-              marginRight: "16px",
-            }}
-          >
-            <ButtonCountProduct onClick={() => deleteOneToCart(cart)}>
-              -
-            </ButtonCountProduct>
-            <span
-              style={{
-                alignSelf: "center",
-                width: "40%",
-                textAlign: "center",
-                color: "#002849",
-                fontWeight: "bold",
-                fontSize: "16px",
-              }}
-            >
-              {cart.quantity}
-            </span>
-            <ButtonCountProduct onClick={() => addToCart(cart)}>
-              +
-            </ButtonCountProduct>
-          </div>
-          <BsTrash3
-            style={{ fontSize: "28px", color: "var(--primary)" }}
-            onClick={() => removeFromCart(cart)}
-          />
-        </div>
-      </div>
-    </div>
+        s/. {cart.unitPrice}
+      </PriceProduct>
+      <CartInListActions>
+        <CartInListActionsContent>
+          <ButtonCountProduct onClick={() => deleteOneToCart(cart)}>
+            -
+          </ButtonCountProduct>
+          <QuantityCart>{cart.quantity}</QuantityCart>
+          <ButtonCountProduct onClick={() => addToCart(cart)}>
+            +
+          </ButtonCountProduct>
+        </CartInListActionsContent>
+        <BsTrash3
+          style={{ fontSize: "36px", color: "var(--primary)" }}
+          onClick={() => removeFromCart(cart)}
+        />
+      </CartInListActions>
+    </CartInListLi>
   );
 };
 
