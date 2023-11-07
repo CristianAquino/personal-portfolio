@@ -20,10 +20,10 @@ import {
 } from "./styled-component";
 
 export type CartInListProps = {
-  cart: Product;
+  product: Product;
 };
 
-const CartInList = ({ cart }: CartInListProps) => {
+const CartInList = ({ product }: CartInListProps) => {
   const { addToCart, deleteOneToCart, removeFromCart } =
     useCustomerContext(CartContext);
 
@@ -37,11 +37,13 @@ const CartInList = ({ cart }: CartInListProps) => {
   return (
     <CartInListLi>
       <CartInListBoxImg>
-        <CartInListImg src={cart.image} alt={cart.name} />
+        <CartInListImg src={product.image} alt={product.name} />
       </CartInListBoxImg>
       <div style={{ flexGrow: 2, width: "50%" }}>
-        <BrandProduct style={{ fontSize: "1rem" }}>{cart.brand}</BrandProduct>
-        <NameProduct style={{ fontSize: "1.5rem" }}>{cart.name}</NameProduct>
+        <BrandProduct style={{ fontSize: "1rem" }}>
+          {product.brand}
+        </BrandProduct>
+        <NameProduct style={{ fontSize: "1.5rem" }}>{product.name}</NameProduct>
       </div>
       <PriceProduct
         style={{
@@ -50,21 +52,21 @@ const CartInList = ({ cart }: CartInListProps) => {
           width: "10%",
         }}
       >
-        s/. {cart.unitPrice}
+        s/. {product.unitPrice}
       </PriceProduct>
       <CartInListActions>
         <CartInListActionsContent>
-          <ButtonCountProduct onClick={() => deleteOneToCart(cart)}>
+          <ButtonCountProduct onClick={() => deleteOneToCart(product)}>
             -
           </ButtonCountProduct>
-          <QuantityCart>{cart.quantity}</QuantityCart>
-          <ButtonCountProduct onClick={() => addToCart(cart)}>
+          <QuantityCart>{product.quantity}</QuantityCart>
+          <ButtonCountProduct onClick={() => addToCart(product)}>
             +
           </ButtonCountProduct>
         </CartInListActionsContent>
         <BsTrash3
           style={{ fontSize: "36px", color: "var(--primary)" }}
-          onClick={() => removeFromCart(cart)}
+          onClick={() => removeFromCart(product)}
         />
       </CartInListActions>
     </CartInListLi>
