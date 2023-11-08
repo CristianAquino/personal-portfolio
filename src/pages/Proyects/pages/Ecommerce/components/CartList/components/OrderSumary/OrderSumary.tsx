@@ -3,6 +3,15 @@ import { checkout } from "../../../../services";
 import { useCustomerContext } from "@app/hooks";
 import { CartContext } from "../../../../context/CartContext";
 import { ButtonNavigate } from "../../../../style-components";
+import {
+  OrderSumaryContent,
+  OrderSumaryDataBill,
+  OrderSumaryHeader,
+  OrderSumaryPrice,
+  OrderSumaryTag,
+} from "../../styled-component";
+import { BsCart, BsTag } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 export type OrderSumaryProps = {};
 
@@ -15,102 +24,76 @@ const OrderSumary = ({}: OrderSumaryProps) => {
   }, []);
 
   return (
-    <div
-      style={{
-        color: "black",
-        width: "30%",
-        position: "sticky",
-        top: "112px",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          width: "100%",
-          justifyContent: "space-between",
-        }}
-      >
-        <span
+    <OrderSumaryContent>
+      <OrderSumaryHeader>
+        <p
           style={{
-            fontSize: "16px",
+            fontSize: "clamp(1rem,0.5rem + 1vw,2rem)",
+            color: "#fff",
             fontWeight: "bold",
-            textTransform: "capitalize",
           }}
         >
-          subtotal
-        </span>
-        <span
+          Resumen de pedido
+        </p>
+        <p
           style={{
-            fontSize: "16px",
-            textTransform: "capitalize",
+            fontSize: "clamp(1rem,0.5rem + 0.75vw,1.5rem)",
+            color: "#fff",
           }}
         >
-          {" "}
+          {cart.length} producto(s)
+        </p>
+      </OrderSumaryHeader>
+      <OrderSumaryDataBill>
+        <OrderSumaryTag>subtotal</OrderSumaryTag>
+        <OrderSumaryPrice>
           s/.{" "}
           {cart.reduce((acc, curr) => acc + curr.unitPrice * curr.quantity, 0)}
-        </span>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          width: "100%",
-          justifyContent: "space-between",
-        }}
-      >
-        <span
+        </OrderSumaryPrice>
+      </OrderSumaryDataBill>
+      <OrderSumaryDataBill>
+        <OrderSumaryTag>total</OrderSumaryTag>
+        <OrderSumaryPrice
           style={{
-            fontSize: "16px",
-            fontWeight: "bold",
-            textTransform: "capitalize",
-          }}
-        >
-          descuento
-        </span>
-        <span
-          style={{
-            fontSize: "16px",
-            textTransform: "capitalize",
-          }}
-        >
-          {" "}
-          s/. {cart.reduce((acc, curr) => acc + curr.unitPrice, 0) * 0.1}
-        </span>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          width: "100%",
-          justifyContent: "space-between",
-        }}
-      >
-        <span
-          style={{
-            fontSize: "16px",
-            fontWeight: "bold",
-            textTransform: "capitalize",
-          }}
-        >
-          total
-        </span>
-        <span
-          style={{
-            fontSize: "16px",
-            textTransform: "capitalize",
             fontWeight: "bold",
           }}
         >
-          {" "}
           s/.{" "}
           {cart.reduce((acc, curr) => acc + curr.unitPrice * curr.quantity, 0)}
-        </span>
-      </div>
+        </OrderSumaryPrice>
+      </OrderSumaryDataBill>
+      <br />
+      <br />
+      <Link
+        to={"/proyects/ecommerce"}
+        style={{
+          paddingTop: "1rem",
+          color: "var(--primary)",
+          fontSize: "clamp(1rem,0.5rem + 0.75vw,1.5rem)",
+          textDecoration: "none",
+        }}
+      >
+        <BsCart /> Añadir mas productos al carrito
+      </Link>
+      <p
+        style={{
+          paddingTop: "1rem",
+          fontSize: "clamp(1rem,0.5rem + 0.75vw,1.5rem)",
+        }}
+      >
+        <BsTag /> ¡Agrega tu cupón en el siguiente paso!
+      </p>
       <ButtonNavigate
-        style={{ width: "100%", marginTop: "16px" }}
+        style={{
+          width: "100%",
+          marginTop: "1rem",
+          fontSize: "clamp(1rem,0.5rem + 0.75vw,1.5rem)",
+        }}
         onClick={checkoutCart}
       >
         Pagar
       </ButtonNavigate>
-    </div>
+    </OrderSumaryContent>
   );
 };
 

@@ -2,7 +2,7 @@ import { BsTrash3 } from "react-icons/bs";
 import { useCustomerContext } from "@hooks/index";
 import { CartContext } from "../../context/CartContext";
 import { Product } from "../../models";
-import { ButtonRemoveToCart } from "../../style-components";
+import { ButtonRemoveToCart, QuantityCart } from "../../style-components";
 import {
   BrandProduct,
   ButtonCountProduct,
@@ -23,7 +23,6 @@ const CartProduct = ({ product }: CartProductProps) => {
         display: "flex",
         gap: "1rem",
         width: "100%",
-        // height: "112px",
         height: "160px",
       }}
     >
@@ -32,8 +31,6 @@ const CartProduct = ({ product }: CartProductProps) => {
         alt={product.name}
         style={{
           height: "100%",
-          // width: "40%",
-          // maxWidth: "120px",
           maxWidth: "160px",
           objectFit: "cover",
           objectPosition: "center",
@@ -44,18 +41,17 @@ const CartProduct = ({ product }: CartProductProps) => {
       <div
         style={{
           height: "100%",
-          // width: "60%",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
           flexGrow: 2,
         }}
       >
-        <div style={{ position: "relative" }}>
+        <div style={{ position: "relative", paddingRight: "2.5rem" }}>
           <BrandProduct style={{ fontSize: "1rem" }}>
             {product.brand}
           </BrandProduct>
-          <NameProduct style={{ fontSize: "1.25rem" }}>
+          <NameProduct style={{ fontSize: "1.25rem", lineHeight: 1 }}>
             {product.name}
           </NameProduct>
           <PriceProduct style={{ fontSize: "1.75rem" }}>
@@ -77,17 +73,7 @@ const CartProduct = ({ product }: CartProductProps) => {
           <ButtonCountProduct onClick={() => deleteOneToCart(product)}>
             -
           </ButtonCountProduct>
-          <span
-            style={{
-              alignSelf: "center",
-              width: "40%",
-              textAlign: "center",
-              color: "#002849",
-              fontWeight: "bold",
-            }}
-          >
-            {product.quantity}
-          </span>
+          <QuantityCart>{product.quantity}</QuantityCart>
           <ButtonCountProduct onClick={() => addToCart(product)}>
             +
           </ButtonCountProduct>
