@@ -1,9 +1,25 @@
 import { BsSearch } from "react-icons/bs";
 import { ButtonSearch, InputSearch } from "../../style-components";
+import { ChangeEvent, FormEvent, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 export type SearchProductProps = {};
 
 const SearchProduct = ({}: SearchProductProps) => {
+  const [search, setSearch] = useState("");
+  const [, setParams] = useSearchParams();
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (search !== "") {
+      setParams({ search });
+    }
+  };
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
+
   return (
     <div
       style={{
@@ -16,8 +32,14 @@ const SearchProduct = ({}: SearchProductProps) => {
           height: "100%",
           position: "relative",
         }}
+        onSubmit={handleSubmit}
       >
-        <InputSearch type="text" placeholder="Enter your search product" />
+        <InputSearch
+          type="text"
+          placeholder="Enter your search product"
+          value={search}
+          onChange={handleChange}
+        />
         <ButtonSearch>
           <BsSearch />
         </ButtonSearch>
