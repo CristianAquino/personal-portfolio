@@ -16,10 +16,16 @@ export type CardProductProps = {
 };
 
 const CardProduct = ({ product }: CardProductProps) => {
-  const { addToCart } = useCustomerContext(CartContext);
+  const { addToCart, cart } = useCustomerContext(CartContext);
   const newPrice = unitDecimal(product.unitPrice);
+  const isInCart = cart.some((p) => p.id == product.id);
+
+  const [label, clase] = isInCart
+    ? ["agregado", "inCart"]
+    : ["agregar al carrito", ""];
+
   return (
-    <CartToProduct>
+    <CartToProduct className={clase}>
       {/* <CartToProduct data-parent={product.dsc}> */}
       <CardImageProduct src={product.image} alt={product.name} />
       <div style={{ padding: ".5rem 0" }}>
@@ -28,7 +34,7 @@ const CardProduct = ({ product }: CardProductProps) => {
         <PriceProduct>s/. {newPrice}</PriceProduct>
       </div>
       <ButtonAddToCart onClick={() => addToCart(product)}>
-        agregar al carrito
+        {label}
       </ButtonAddToCart>
     </CartToProduct>
   );
