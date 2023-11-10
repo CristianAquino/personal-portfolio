@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { NavigatorProducts, FilterProducts, Brands } from "..";
+import { Brands, FilterProducts } from "..";
 import { Product } from "../../models";
 import { getproducts } from "../../services";
 import { GridProducts } from "../../style-components";
-import { CardProduct } from "../CardProduct";
 import { Main } from "../../style-components/General.style";
+import { CardProduct } from "../CardProduct";
 
 export type ProductsProps = {};
 
@@ -21,7 +21,6 @@ const Products = ({}: ProductsProps) => {
 
   return (
     <Main>
-      {/* <NavigatorProducts /> */}
       <FilterProducts />
       <div style={{ width: "80%" }}>
         <div
