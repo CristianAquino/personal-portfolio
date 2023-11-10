@@ -1,4 +1,4 @@
-import { Link, useParams, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Container, Handle, Slider } from "./styled-component";
 
 export type BrandsProps = {};
