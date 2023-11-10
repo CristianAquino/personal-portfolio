@@ -1,4 +1,4 @@
-import { emoticonosNotFound } from "../../helpers";
+import { emoticonosNotFound } from "@helpers/index";
 import { Container, LinkRedirect, Message } from "./style-components";
 
 export type NotFoundProps = {
@@ -12,7 +12,9 @@ const NotFound = ({ message, pageRedirect }: NotFoundProps) => {
     <Container>
       <p>{emoticon}</p>
       <Message>{message}</Message>
-      <LinkRedirect to={pageRedirect}>Go to Components</LinkRedirect>
+      <LinkRedirect to={pageRedirect} replace>
+        Go to Home Page
+      </LinkRedirect>
     </Container>
   );
 };

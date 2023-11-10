@@ -1,8 +1,11 @@
 import { BrowserRouter, Route } from "react-router-dom";
-import { RoutesWithNotFound } from "./helpers";
-import { PUBLIC_ROUTE } from "./routes";
-import "./App.css";
-import { Components, Proyects } from "./pages";
+import { RoutesWithNotFound } from "@guards/index";
+import { PUBLIC_ROUTE } from "@routes/index";
+import { lazy } from "react";
+import "@app/App.css";
+
+const Proyects = lazy(() => import("@pages/Proyects/Proyects"));
+const Components = lazy(() => import("@pages/Components/Components"));
 
 function App() {
   return (
