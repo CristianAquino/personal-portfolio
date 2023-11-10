@@ -1,6 +1,6 @@
 :root {
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: var(--darkColor);
   background-color: var(--darkMode);
 
   font-synthesis: none;
@@ -10,19 +10,18 @@
   -webkit-text-size-adjust: 100%;
 }
 
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+body,
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 #root {
-  min-width: 320px;
-  max-width: 1280px;
-  min-height: 100vh;
+  min-width: 300px;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     --darkMode: #fff;
+    --darkColor: #242424;
   }
 }
