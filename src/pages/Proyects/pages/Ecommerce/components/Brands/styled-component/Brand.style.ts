@@ -17,13 +17,22 @@ const Slider = styled.ul`
   transform: translatex(calc(var(--slider-index) * -100%));
   transition: transform 250ms ease-in-out;
   list-style: none;
-
+  & li > a {
+    text-decoration: none;
+    color: #000;
+  }
   & > li {
     font-size: clamp(1rem, 1rem + 0.7vw, 1.5rem);
     margin: 0 0.125rem;
     background: #ccc;
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
+  }
+  & > li.active {
+    background-color: var(--primary);
+  }
+  & li.active > a {
+    color: #fff;
   }
 `;
 

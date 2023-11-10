@@ -1,9 +1,10 @@
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import { Container, Handle, Slider } from "./styled-component";
 
 export type BrandsProps = {};
 
 const Brands = ({}: BrandsProps) => {
-  const brands = [
+  const brandVariants = [
     "Golden",
     "Apple",
     "Samsung",
@@ -32,13 +33,20 @@ const Brands = ({}: BrandsProps) => {
     "LED Lights",
     "luxury palace",
   ];
+  const [params] = useSearchParams();
+  const brandParam = params.get("brand") || brandVariants[0];
+  console.log(brandParam);
 
   return (
     <Container>
       <Handle>&#8249;</Handle>
       <Slider>
-        {brands.map((brand) => (
-          <li key={brand}>{brand}</li>
+        {brandVariants.map((brand) => (
+          <li className={`${brand == brandParam ? "active" : null}`}>
+            <Link key={brand} to={`?brand=${brand}`}>
+              {brand}
+            </Link>
+          </li>
         ))}
       </Slider>
       <Handle>&#8250;</Handle>
