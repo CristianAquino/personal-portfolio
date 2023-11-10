@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Button = styled.button`
   background: #15dbff;
@@ -7,13 +7,32 @@ const Button = styled.button`
   border: none;
 `;
 
-const ButtonCart = styled(Button)`
+const ButtonCart = styled(Button)<{ $mode: number }>`
+  ${(props) => {
+    if (props.$mode > 0) {
+      return css`
+        &::after {
+          content: "${props.$mode}";
+          width: 20px;
+          height: 20px;
+          background-color: red;
+          border-radius: 50%;
+          position: absolute;
+          right: 10px;
+          top: -10px;
+          color: white;
+          font-size: 0.75rem;
+        }
+      `;
+    }
+  }}
   width: 64px;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
+  position: relative;
 `;
 
 const ButtonNavigate = styled(Button)`
@@ -61,6 +80,15 @@ const GoToPay = styled(Link)`
   text-align: center;
 `;
 
+const QuantityCart = styled.span`
+  align-self: center;
+  width: 40%;
+  text-align: center;
+  color: #002849;
+  font-weight: bold;
+  font-size: 1rem;
+`;
+
 export {
   ButtonCart,
   Button,
@@ -69,4 +97,5 @@ export {
   ButtonClose,
   ButtonRemoveToCart,
   GoToPay,
+  QuantityCart,
 };

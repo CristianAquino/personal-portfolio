@@ -34,6 +34,9 @@ const CartToProduct = styled.div`
     height: 7%;
     padding: 0 8px;
   }
+  &.inCart {
+    background-color: #15dbff40;
+  }
 `;
 
 const BrandProduct = styled.p`
