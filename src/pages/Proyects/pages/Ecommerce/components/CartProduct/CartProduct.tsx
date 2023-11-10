@@ -9,6 +9,11 @@ import {
   NameProduct,
   PriceProduct,
 } from "../../style-components/Product.style";
+import {
+  CartProductActions,
+  CartProductContainer,
+  CartProductImg,
+} from "./styled-components";
 
 export type CartProductProps = {
   product: Product;
@@ -18,26 +23,8 @@ const CartProduct = ({ product }: CartProductProps) => {
   const { addToCart, deleteOneToCart, removeFromCart } =
     useCustomerContext(CartContext);
   return (
-    <li
-      style={{
-        display: "flex",
-        gap: "1rem",
-        width: "100%",
-        height: "160px",
-      }}
-    >
-      <img
-        src={product.image}
-        alt={product.name}
-        style={{
-          height: "100%",
-          maxWidth: "160px",
-          objectFit: "cover",
-          objectPosition: "center",
-          borderRadius: "8px",
-          flexGrow: 1,
-        }}
-      />
+    <CartProductContainer>
+      <CartProductImg src={product.image} alt={product.name} />
       <div
         style={{
           height: "100%",
@@ -61,15 +48,7 @@ const CartProduct = ({ product }: CartProductProps) => {
             <BsTrash3 />
           </ButtonRemoveToCart>
         </div>
-        <div
-          style={{
-            width: "50%",
-            border: "1px solid var(--primary)",
-            borderRadius: "8px",
-            display: "flex",
-            height: "36px",
-          }}
-        >
+        <CartProductActions>
           <ButtonCountProduct onClick={() => deleteOneToCart(product)}>
             -
           </ButtonCountProduct>
@@ -77,9 +56,9 @@ const CartProduct = ({ product }: CartProductProps) => {
           <ButtonCountProduct onClick={() => addToCart(product)}>
             +
           </ButtonCountProduct>
-        </div>
+        </CartProductActions>
       </div>
-    </li>
+    </CartProductContainer>
   );
 };
 
