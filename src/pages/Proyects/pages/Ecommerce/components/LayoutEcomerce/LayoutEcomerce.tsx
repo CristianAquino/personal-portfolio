@@ -15,6 +15,7 @@ const LayoutEcomerce = ({}: LayoutEcomerceProps) => {
       root.style.background = "var(--darkMode)";
     };
   }, []);
+
   return (
     <CartProvider>
       <NavigatorEcomerce />
