@@ -1,7 +1,7 @@
+import { useCustomerContext } from "@hooks/index";
 import { useEffect, useState } from "react";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { CartProduct } from "..";
-import { useCustomerContext } from "@hooks/index";
 import { CartContext } from "../../context/CartContext";
 import { openCart } from "../../services";
 import { ButtonClose, GoToPay } from "../../style-components";
@@ -38,7 +38,10 @@ const Cart = ({}: CartProps) => {
             position: "fixed",
             width: "40px",
             height: "40px",
-            textAlign: "center",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "1.5rem",
           }}
           onClick={handldeCloseCart}
         >
