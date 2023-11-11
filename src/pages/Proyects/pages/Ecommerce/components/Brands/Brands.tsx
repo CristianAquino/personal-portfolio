@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Container, Handle, Slider } from "./styled-component";
 
@@ -33,23 +34,58 @@ const Brands = ({}: BrandsProps) => {
     "LED Lights",
     "luxury palace",
   ];
+
   const [params] = useSearchParams();
   const brandParam = params.get("brand") || brandVariants[0];
-  console.log(brandParam);
+  const [arrowSlide, setArrowSlide] = useState(0);
+
+  useEffect(() => {
+    document.addEventListener("click", (e) => {
+      let handle;
+      if (e.target?.matches(".handle")) {
+        handle = e.target;
+      } else {
+        handle = e.target?.closest(".handle");
+      }
+      if (handle != null) {
+        onHandleClick(handle);
+      }
+    });
+
+    function onHandleClick(handle: any) {
+      const slider = handle.closest(".container").querySelector(".slider");
+      const sliderIndex = parseInt(
+        getComputedStyle(slider).getPropertyValue("--slider-index")
+      );
+      if (handle.classList.contains("left-handle")) {
+        slider.style.setProperty("--slider-index", sliderIndex - 1);
+        setArrowSlide((prev) => prev - 1);
+      }
+      if (handle.classList.contains("right-handle")) {
+        slider.style.setProperty("--slider-index", sliderIndex + 1);
+        setArrowSlide((prev) => prev + 1);
+      }
+    }
+  }, []);
 
   return (
-    <Container>
-      <Handle>&#8249;</Handle>
-      <Slider>
+    <Container className="container">
+      {arrowSlide > 0 && (
+        <Handle className="handle left-handle">&#8249;</Handle>
+      )}
+      <Slider className="slider">
         {brandVariants.map((brand) => (
-          <li className={`${brand == brandParam ? "active" : null}`}>
-            <Link key={brand} to={`?brand=${brand}`}>
-              {brand}
-            </Link>
+          <li
+            key={brand}
+            className={`${brand == brandParam ? "active" : null}`}
+          >
+            <Link to={`?brand=${brand}`}>{brand}</Link>
           </li>
         ))}
       </Slider>
-      <Handle>&#8250;</Handle>
+      {brandVariants.length / 2 - 1 > arrowSlide && (
+        <Handle className="handle right-handle">&#8250;</Handle>
+      )}
     </Container>
   );
 };
