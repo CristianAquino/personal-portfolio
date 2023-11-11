@@ -9,12 +9,11 @@ const Container = styled.div`
 `;
 
 const Slider = styled.ul`
-  --items-per-screen: 4; // con esto decidimos cuantos items mostrar al usuario
   --slider-index: 0;
   display: flex;
   width: calc(100% - 2 * 2rem);
   flex-grow: 1;
-  transform: translatex(calc(var(--slider-index) * -100%));
+  transform: translatex(calc(var(--slider-index) / 4 * -100%));
   transition: transform 250ms ease-in-out;
   list-style: none;
   & li > a {
