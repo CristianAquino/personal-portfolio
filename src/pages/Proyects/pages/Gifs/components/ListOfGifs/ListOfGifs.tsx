@@ -7,7 +7,7 @@ export type ListOfGifsProps = {
 
 const ListOfGifs = ({ gifs }: ListOfGifsProps) => {
   return (
-    <div>
+    <div style={{ minHeight: "100vh" }}>
       {gifs.map((gif) => (
         <SingleGif key={gif.id} gif={gif} />
       ))}

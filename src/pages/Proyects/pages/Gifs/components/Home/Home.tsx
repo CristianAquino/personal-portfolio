@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ListOfGifs } from "..";
+import { LazyTrending, ListOfGifs } from "..";
 import { useGifs } from "../../hooks";
 
 export type HomeProps = {};
@@ -26,6 +26,7 @@ const Home = ({}: HomeProps) => {
       </form>
       <h3>Last Search</h3>
       <ListOfGifs gifs={gifs} />
+      <LazyTrending />
     </div>
   );
 };
