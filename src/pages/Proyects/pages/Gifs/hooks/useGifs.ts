@@ -1,22 +1,35 @@
 import { useEffect, useState } from "react";
 import { Gif } from "../models";
 import { getGifs } from "../services";
+import { persistLocalStorage } from "@app/helpers";
 
 function useGifs(keyword: any = null) {
   const [gifs, setGifs] = useState<Gif[]>([]);
+  const [page, setPage] = useState(0);
+  const keywordToUse =
+    keyword ?? JSON.parse(localStorage.getItem("lastKeyword")!).keyword;
 
+  console.log(gifs);
   useEffect(() => {
-    const keywordToUse = keyword ?? localStorage.getItem("lastKeyword");
     async function gifs() {
-      const data = await getGifs(keywordToUse);
-      localStorage.setItem("lastKeyword", keywordToUse);
+      const data = await getGifs({ keyword: keywordToUse });
+      persistLocalStorage("lastKeyword", { keyword: keywordToUse });
       setGifs(data);
-      return;
     }
     gifs();
   }, [keyword]);
 
-  return { gifs };
+  useEffect(() => {
+    if (page == 0) return;
+    console.log(page);
+    async function gifs() {
+      const data = await getGifs({ keyword: keywordToUse, page });
+      setGifs((prev) => [...prev, ...data]);
+    }
+    gifs();
+  }, [page]);
+
+  return { gifs, setPage };
 }
 
 export { useGifs };
