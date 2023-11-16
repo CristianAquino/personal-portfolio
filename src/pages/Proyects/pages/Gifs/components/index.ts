@@ -4,3 +4,4 @@ export * from "./ListOfGifs";
 export * from "./SearchOfResults";
 export * from "./TrendingSearches";
 export * from "./Category";
+export * from "./SearchForm";

@@ -1,1 +1,1 @@
-export { default as LazyTrending } from "./LazyTrending";
+export { default as TrendingSearches } from "./TrendingSearches";
