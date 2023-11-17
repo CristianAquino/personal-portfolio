@@ -1,23 +1,29 @@
+import { useIntersectionObserver } from "@app/hooks";
+import { useCallback, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useGifs } from "../../hooks";
 import { ListOfGifs } from "..";
+import { useGifs } from "../../hooks";
 
 export type SearchOfResultsProps = {};
 
 const SearchOfResults = ({}: SearchOfResultsProps) => {
   const { keyword } = useParams();
   const { gifs, setPage } = useGifs(keyword as string);
+  const { isIntersecting, elementRef } = useIntersectionObserver({});
 
-  function handleNextPage() {
+  const handleNextPage = useCallback(() => {
     setPage((prev) => prev + 1);
-  }
+  }, [setPage]);
 
-  if (gifs.length == 0) return <p>Loading...</p>;
+  useEffect(() => {
+    if (isIntersecting) handleNextPage();
+  }, [isIntersecting]);
+
   return (
     <>
       <h3>{keyword}</h3>
-      <ListOfGifs gifs={gifs} />
-      <button onClick={handleNextPage}>Next page</button>
+      {gifs.length == 0 ? <p>Loading...</p> : <ListOfGifs gifs={gifs} />}
+      <div ref={elementRef}></div>
     </>
   );
 };

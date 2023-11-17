@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Gif } from "../../models";
 
 export type SingleGifProps = {
@@ -15,4 +16,4 @@ const SingleGif = ({ gif }: SingleGifProps) => {
   );
 };
 
-export default SingleGif;
+export default memo(SingleGif);
