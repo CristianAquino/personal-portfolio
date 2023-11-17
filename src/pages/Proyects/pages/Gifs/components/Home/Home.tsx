@@ -1,32 +1,29 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { Suspense, lazy } from "react";
 import { useNavigate } from "react-router-dom";
-import { LazyTrending, ListOfGifs } from "..";
+import { ListOfGifs, SearchForm } from "..";
 import { useGifs } from "../../hooks";
+const TrendingSearches = lazy(
+  () => import("../TrendingSearches/TrendingSearches")
+);
 
 export type HomeProps = {};
 
 const Home = ({}: HomeProps) => {
-  const [keyword, setKeyword] = useState("");
   const { gifs } = useGifs();
   const navigate = useNavigate();
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  function handleSubmit({ keyword }: { keyword: string }) {
     navigate(`/proyects/gifs/${keyword}`);
-  }
-
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    setKeyword(e.target.value);
   }
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={keyword} onChange={handleChange} />
-      </form>
+      <SearchForm handleSubmit={handleSubmit} />
+      <Suspense fallback={<h1>Loading Trending Searches</h1>}>
+        <TrendingSearches />
+      </Suspense>
       <h3>Last Search</h3>
       <ListOfGifs gifs={gifs} />
-      <LazyTrending />
     </div>
   );
 };
