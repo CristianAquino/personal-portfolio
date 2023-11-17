@@ -9,7 +9,6 @@ function useGifs(keyword: any = null) {
   const keywordToUse =
     keyword ?? JSON.parse(localStorage.getItem("lastKeyword")!).keyword;
 
-  console.log(gifs);
   useEffect(() => {
     async function gifs() {
       const data = await getGifs({ keyword: keywordToUse });
@@ -21,7 +20,6 @@ function useGifs(keyword: any = null) {
 
   useEffect(() => {
     if (page == 0) return;
-    console.log(page);
     async function gifs() {
       const data = await getGifs({ keyword: keywordToUse, page });
       setGifs((prev) => [...prev, ...data]);
