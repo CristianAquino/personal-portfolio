@@ -1,7 +1,12 @@
 import { RoutesWithNotFound } from "@app/guards";
 import { PROYECTS_ROUTE, PUBLIC_ROUTE } from "@app/routes";
 import { Route } from "react-router-dom";
-import { Home, SearchOfResults } from "./components";
+import { Suspense, lazy } from "react";
+import { Home } from "./components";
+
+const SearchOfResults = lazy(
+  () => import("./components/SearchOfResults/SearchOfResults")
+);
 
 export type GifsProps = {};
 
@@ -14,7 +19,11 @@ const Gifs = ({}: GifsProps) => {
       <Route path={`${PUBLIC_ROUTE.HOME}`} element={<Home />} />
       <Route
         path={`${PUBLIC_ROUTE.HOME}/:keyword`}
-        element={<SearchOfResults />}
+        element={
+          <Suspense fallback={<h1>Load Searchs...</h1>}>
+            <SearchOfResults />
+          </Suspense>
+        }
       />
     </RoutesWithNotFound>
   );
