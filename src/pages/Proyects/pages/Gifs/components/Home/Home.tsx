@@ -1,7 +1,8 @@
 import { Suspense, lazy } from "react";
-import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import { ListOfGifs, SearchForm } from "..";
 import { useGifs } from "../../hooks";
+
 const TrendingSearches = lazy(
   () => import("../TrendingSearches/TrendingSearches")
 );
@@ -10,15 +11,18 @@ export type HomeProps = {};
 
 const Home = ({}: HomeProps) => {
   const { gifs } = useGifs();
-  const navigate = useNavigate();
-
-  function handleSubmit({ keyword }: { keyword: string }) {
-    navigate(`/proyects/gifs/${keyword}`);
-  }
 
   return (
     <div>
-      <SearchForm handleSubmit={handleSubmit} />
+      <Helmet>
+        <title>Home | Gifs</title>
+        <meta
+          name="description"
+          content="main page of the gifs project created by CRdev where a list of gifs is displayedpage principal of gifs"
+        />
+      </Helmet>
+      <h1>CRgifs</h1>
+      <SearchForm />
       <Suspense fallback={<h1>Loading Trending Searches</h1>}>
         <TrendingSearches />
       </Suspense>

@@ -1,8 +1,9 @@
 import { useIntersectionObserver } from "@app/hooks";
-import { useCallback, useEffect } from "react";
+import { Fragment, useCallback, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { ListOfGifs } from "..";
+import { ListOfGifs, SearchForm } from "..";
 import { useGifs } from "../../hooks";
+import { Helmet } from "react-helmet";
 
 export type SearchOfResultsProps = {};
 
@@ -20,11 +21,29 @@ const SearchOfResults = ({}: SearchOfResultsProps) => {
   }, [isIntersecting]);
 
   return (
-    <>
+    <Fragment>
+      <Helmet>
+        <title>Results of {keyword} | Gifs</title>
+        <meta
+          name="description"
+          content={`results obtained when performing the ${keyword} search`}
+        />
+      </Helmet>
+      <h1>CRgifs</h1>
+      <SearchForm />
       <h3>{keyword}</h3>
-      {gifs.length == 0 ? <p>Loading...</p> : <ListOfGifs gifs={gifs} />}
+      {gifs.length == 0 ? (
+        <p>
+          <Helmet>
+            <title>loading... | Gifs</title>
+          </Helmet>
+          Loading...
+        </p>
+      ) : (
+        <ListOfGifs gifs={gifs} />
+      )}
       <div ref={elementRef}></div>
-    </>
+    </Fragment>
   );
 };
 
