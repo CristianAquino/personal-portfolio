@@ -16,7 +16,7 @@ const TrendingSearches = ({}: TrendingSearchesProps) => {
     trend();
   }, []);
 
-  return <Category name="Trending" options={trends} />;
+  return <Category options={trends} />;
 };
 
 export default TrendingSearches;

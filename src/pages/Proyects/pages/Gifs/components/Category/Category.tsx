@@ -1,21 +1,25 @@
-import { Link } from "react-router-dom";
+import { randomColor } from "@app/helpers/getColors.helper";
+import { CategoryLi, CategoryLink, CategoryUl } from "./styled-components";
 
 export type CategoryProps = {
-  name: string;
   options: string[];
 };
 
-const Category = ({ name, options }: CategoryProps) => {
+const Category = ({ options }: CategoryProps) => {
   return (
     <section>
-      <h2>{name}</h2>
-      <ul>
-        {options.map((option) => (
-          <li key={option}>
-            <Link to={option}>{option}</Link>
-          </li>
-        ))}
-      </ul>
+      <CategoryUl>
+        {options.map((option) => {
+          let color = randomColor();
+          return (
+            <CategoryLi key={option} $colorLink={color}>
+              <CategoryLink to={option} aria-label={`link to ${option}`}>
+                {option}
+              </CategoryLink>
+            </CategoryLi>
+          );
+        })}
+      </CategoryUl>
     </section>
   );
 };

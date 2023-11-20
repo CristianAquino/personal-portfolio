@@ -18,7 +18,13 @@ const SearchForm = ({}: SearchFormProps) => {
 
   return (
     <form onSubmit={onSubmit}>
-      <input type="text" value={keyword} onChange={handleChange} />
+      <input
+        type="text"
+        value={keyword}
+        onChange={handleChange}
+        placeholder="into name gif"
+        aria-label="into name gif"
+      />
       <input type="submit" value="Search" />
     </form>
   );
