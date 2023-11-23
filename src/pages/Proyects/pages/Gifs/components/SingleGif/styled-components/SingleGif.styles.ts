@@ -5,14 +5,6 @@ const GifElement = styled.figure<{ $c: number }>`
   max-height: 500px;
   ${(props) => props.$c % 4 == 0 && "grid-column: 1/-1"};
   position: relative;
-
-  & > figcaption {
-    position: absolute;
-    bottom: 1.25rem;
-    left: 1rem;
-    font-size: 1.25rem;
-    font-weight: bold;
-  }
 `;
 
 const GifImage = styled.img`
@@ -22,4 +14,12 @@ const GifImage = styled.img`
   object-position: center;
 `;
 
-export { GifElement, GifImage };
+const GifTitleImage = styled.figcaption`
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+`;
+
+export { GifElement, GifImage, GifTitleImage };
