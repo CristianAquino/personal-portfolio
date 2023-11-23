@@ -1,9 +1,11 @@
+import { GifsLogo } from "@app/assets/gifsLogo";
 import { useIntersectionObserver } from "@app/hooks";
-import { Fragment, useCallback, useEffect } from "react";
+import { useCallback, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 import { ListOfGifs, SearchForm } from "..";
 import { useGifs } from "../../hooks";
-import { Helmet } from "react-helmet";
+import { LogoLink, MainGifs, SectionTitle } from "../Home/style-components";
 
 export type SearchOfResultsProps = {};
 
@@ -21,7 +23,7 @@ const SearchOfResults = ({}: SearchOfResultsProps) => {
   }, [isIntersecting]);
 
   return (
-    <Fragment>
+    <MainGifs>
       <Helmet>
         <title>Results of {keyword} | Gifs</title>
         <meta
@@ -29,9 +31,11 @@ const SearchOfResults = ({}: SearchOfResultsProps) => {
           content={`results obtained when performing the ${keyword} search`}
         />
       </Helmet>
-      <h1>CRgifs</h1>
+      <LogoLink to={"/proyects/gifs"} aria-label="link to gifs">
+        <GifsLogo />
+      </LogoLink>
       <SearchForm />
-      <h3>{keyword}</h3>
+      <SectionTitle>{keyword}</SectionTitle>
       {gifs.length == 0 ? (
         <p>
           <Helmet>
@@ -43,7 +47,7 @@ const SearchOfResults = ({}: SearchOfResultsProps) => {
         <ListOfGifs gifs={gifs} />
       )}
       <div ref={elementRef}></div>
-    </Fragment>
+    </MainGifs>
   );
 };
 

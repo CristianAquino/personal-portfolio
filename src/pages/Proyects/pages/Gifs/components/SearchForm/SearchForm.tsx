@@ -1,5 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FormSearch } from "./styled-components";
 
 export type SearchFormProps = {};
 
@@ -17,7 +18,7 @@ const SearchForm = ({}: SearchFormProps) => {
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <FormSearch onSubmit={onSubmit}>
       <input
         type="text"
         value={keyword}
@@ -26,7 +27,7 @@ const SearchForm = ({}: SearchFormProps) => {
         aria-label="into name gif"
       />
       <input type="submit" value="Search" />
-    </form>
+    </FormSearch>
   );
 };
 

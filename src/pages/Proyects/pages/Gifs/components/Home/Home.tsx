@@ -1,10 +1,9 @@
 import { GifsLogo } from "@app/assets/gifsLogo";
 import { Suspense, lazy } from "react";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
 import { SearchForm } from "..";
 import { useGifs } from "../../hooks";
-import { MainGifs, SectionTitle } from "./style-components";
+import { LogoLink, MainGifs, SectionTitle } from "./style-components";
 
 const TrendingSearches = lazy(
   () => import("../TrendingSearches/TrendingSearches")
@@ -48,9 +47,9 @@ const Home = ({}: HomeProps) => {
         <meta name="theme-color" content="#ffffff" />
       </Helmet>
       {/* PAGE */}
-      <Link to={"/proyects/gifs"} aria-label="link to gifs">
+      <LogoLink to={"/proyects/gifs"} aria-label="link to gifs">
         <GifsLogo />
-      </Link>
+      </LogoLink>
       <SearchForm />
       <SectionTitle>Trending</SectionTitle>
       <Suspense fallback={<h1>Loading Trending Searches</h1>}>

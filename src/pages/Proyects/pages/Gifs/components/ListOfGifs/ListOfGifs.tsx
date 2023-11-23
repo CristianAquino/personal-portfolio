@@ -1,5 +1,6 @@
 import { SingleGif } from "..";
 import { Gif } from "../../models";
+import { GifsContainer } from "./styled-components";
 
 export type ListOfGifsProps = {
   gifs: Gif[];
@@ -7,11 +8,11 @@ export type ListOfGifsProps = {
 
 const ListOfGifs = ({ gifs }: ListOfGifsProps) => {
   return (
-    <div style={{ minHeight: "100vh" }}>
-      {gifs.map((gif) => (
-        <SingleGif key={gif.id} gif={gif} />
+    <GifsContainer>
+      {gifs.map((gif, index) => (
+        <SingleGif key={gif.id} gif={gif} index={index} />
       ))}
-    </div>
+    </GifsContainer>
   );
 };
 
