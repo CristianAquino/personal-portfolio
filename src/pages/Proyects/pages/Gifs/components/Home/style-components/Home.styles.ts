@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const MainGifs = styled.main`
@@ -15,4 +16,8 @@ const SectionTitle = styled.h2`
   font-size: clamp(var(--minSize), var(--mediumSize), var(--maxSize));
 `;
 
-export { MainGifs, SectionTitle };
+const LogoLink = styled(Link)`
+  text-align: center;
+`;
+
+export { MainGifs, SectionTitle, LogoLink };
