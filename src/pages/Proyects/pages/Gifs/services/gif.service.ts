@@ -9,7 +9,7 @@ type getGifProps = {
 
 async function getGifs({
   keyword = "panda",
-  limit = 10,
+  limit = 12,
   page = 0,
 }: Partial<getGifProps>) {
   const URL = `https://api.giphy.com/v1/gifs/search?api_key=${VITE_API_KEY_GIFS}&q=${keyword}&limit=${limit}&offset=${
