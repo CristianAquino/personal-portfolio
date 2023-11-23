@@ -8,6 +8,7 @@ import {
   MessageProducts,
   ProductsCartListContent,
 } from "./styled-component";
+import { Helmet } from "react-helmet";
 
 export type CartListProps = {};
 
@@ -20,6 +21,13 @@ const CartList = ({}: CartListProps) => {
         flexDirection: "column",
       }}
     >
+      <Helmet>
+        <title>List of products | Ecommerce</title>
+        <meta
+          name="description"
+          content="list of products that will pass part of the checkout"
+        />
+      </Helmet>
       <MessageProducts>
         hola estas a un paso de completar tu compra, pero antes te pedimos que
         verifiques que los productos que visualizas sean los que necesitas.
