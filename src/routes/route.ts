@@ -22,5 +22,7 @@ export const SERVICE_ROUTE = {
 };
 export const PROYECTS_ROUTE = {
   ECOMMERCE: "/ecommerce",
+  GIFS: "/gifs",
 };
+
 export const COMPONENTS_ROUTE = {};
