@@ -6,7 +6,7 @@ const MainGifs = styled.main`
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
-  margin: 1rem 5%;
+  margin: 2% 5%;
 `;
 
 const SectionTitle = styled.h2`

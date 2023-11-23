@@ -6,18 +6,20 @@ const GifElement = styled.figure<{ $c: number }>`
   ${(props) => props.$c % 4 == 0 && "grid-column: 1/-1"};
   position: relative;
 
-  & > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
   & > figcaption {
     position: absolute;
     bottom: 1.25rem;
     left: 1rem;
     font-size: 1.25rem;
+    font-weight: bold;
   }
 `;
 
-export { GifElement };
+const GifImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+`;
+
+export { GifElement, GifImage };
