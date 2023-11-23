@@ -40,7 +40,7 @@ const Brands = ({}: BrandsProps) => {
   const [arrowSlide, setArrowSlide] = useState(0);
 
   useEffect(() => {
-    document.addEventListener("click", (e) => {
+    document.addEventListener("click", (e: any) => {
       let handle;
       if (e.target?.matches(".handle")) {
         handle = e.target;
