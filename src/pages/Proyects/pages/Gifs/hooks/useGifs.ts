@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Gif } from "../models";
 import { getGifs } from "../services";
-import { persistLocalStorage } from "@app/helpers";
+import { getLocalStorage, persistLocalStorage } from "@app/helpers";
 
 function useGifs(keyword: any = null) {
   const [gifs, setGifs] = useState<Gif[]>([]);
   const [page, setPage] = useState(0);
   const keywordToUse =
-    keyword ?? JSON.parse(localStorage.getItem("lastKeyword")!).keyword;
+    keyword ?? getLocalStorage("lastKeyword")?.keyword ?? "random";
 
   useEffect(() => {
     async function gifs() {

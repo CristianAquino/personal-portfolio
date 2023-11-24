@@ -5,3 +5,4 @@ export * from "./SearchOfResults";
 export * from "./TrendingSearches";
 export * from "./Category";
 export * from "./SearchForm";
+export * from "./Modal";

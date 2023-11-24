@@ -1,4 +1,5 @@
 import { gifData } from "../adapters";
+import { BASE_API_ROUTE } from "@app/routes";
 const { VITE_API_KEY_GIFS } = import.meta.env;
 
 type getGifProps = {
@@ -12,7 +13,9 @@ async function getGifs({
   limit = 12,
   page = 0,
 }: Partial<getGifProps>) {
-  const URL = `https://api.giphy.com/v1/gifs/search?api_key=${VITE_API_KEY_GIFS}&q=${keyword}&limit=${limit}&offset=${
+  const URL = `${
+    BASE_API_ROUTE.GIFS
+  }gifs/search?api_key=${VITE_API_KEY_GIFS}&q=${keyword}&limit=${limit}&offset=${
     page * limit
   }&rating=G&lang=en`;
   const url = await fetch(URL);
@@ -20,4 +23,11 @@ async function getGifs({
   return data.map((gif: any) => gifData(gif));
 }
 
-export { getGifs };
+async function getGifById(id: string) {
+  const URL = `${BASE_API_ROUTE.GIFS}gifs/${id}?api_key=${VITE_API_KEY_GIFS}`;
+  const url = await fetch(URL);
+  const { data } = await url.json();
+  return gifData(data);
+}
+
+export { getGifs, getGifById };
