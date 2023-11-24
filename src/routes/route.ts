@@ -1,5 +1,9 @@
 const { VITE_BASE_ROUTE } = import.meta.env;
 
+export const BASE_API_ROUTE = {
+  GIFS: "https://api.giphy.com/v1/",
+};
+
 const API_ROUTE = {
   PRODUCT: `${VITE_BASE_ROUTE}/product`,
   STRIPE: `${VITE_BASE_ROUTE}/stripe`,

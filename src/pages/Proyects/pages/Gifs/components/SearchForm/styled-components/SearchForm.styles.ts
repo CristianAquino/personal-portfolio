@@ -3,12 +3,14 @@ import styled from "styled-components";
 const FormSearch = styled.form`
   text-align: center;
   --height: 3rem;
-  --fSize: 1.5rem;
+  --minSize: 1rem;
+  --mediumSize: calc(0.5rem + 1vw);
+  --maxSize: 2rem;
 
   & > input[type="text"] {
     width: 30%;
     height: var(--height);
-    font-size: var(--fSize);
+    font-size: clamp(var(--minSize), var(--mediumSize), var(--maxSize));
     padding-left: 1rem;
     border-color: transparent;
     border-bottom: 2px solid var(--primary);
@@ -17,7 +19,7 @@ const FormSearch = styled.form`
     caret-color: var(--primary);
   }
   & > input[type="submit"] {
-    font-size: var(--fSize);
+    font-size: clamp(var(--minSize), var(--mediumSize), var(--maxSize));
     margin-left: 1rem;
     padding: 0 2rem;
     height: var(--height);
