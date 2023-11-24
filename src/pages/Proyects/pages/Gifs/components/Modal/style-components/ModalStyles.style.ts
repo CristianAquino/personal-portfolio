@@ -34,7 +34,7 @@ const ModalTitleImage = styled.p`
 
 const ModalCloseButton = styled.button`
   position: absolute;
-  font-size: 1.25rem;
+  font-size: 2rem;
   font-weight: bold;
   top: 0;
   right: 0;
@@ -42,6 +42,7 @@ const ModalCloseButton = styled.button`
   padding: 0.5rem 1rem;
   border: none;
   background-color: #03b19f;
+  line-height: 1;
 `;
 
 export { ModalContainer, ModalImage, ModalTitleImage, ModalCloseButton };
