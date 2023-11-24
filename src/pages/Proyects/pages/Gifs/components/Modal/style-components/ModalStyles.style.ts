@@ -22,14 +22,17 @@ const ModalImage = styled.img`
 `;
 
 const ModalTitleImage = styled.p`
+  --minSize: 1rem;
+  --mediumSize: calc(0.5rem + 1vw);
+  --maxSize: 2rem;
   position: absolute;
-  font-size: 1.25rem;
+  font-size: clamp(var(--minSize), var(--mediumSize), var(--maxSize));
   font-weight: bold;
   bottom: 1.25rem;
   left: 1rem;
 `;
 
-const ModalCloseButton = styled.p`
+const ModalCloseButton = styled.button`
   position: absolute;
   font-size: 1.25rem;
   font-weight: bold;
