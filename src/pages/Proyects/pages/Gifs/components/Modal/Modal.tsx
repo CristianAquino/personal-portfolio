@@ -8,6 +8,7 @@ import {
   ModalImage,
   ModalTitleImage,
 } from "./style-components";
+import { IoIosClose } from "react-icons/io";
 
 export type ModalProps = {};
 
@@ -36,13 +37,15 @@ const Modal = ({}: ModalProps) => {
     };
   }, [searchParams]);
 
-  if (!gif) return <p>Loading</p>;
+  if (!gif) return <p>Loading...</p>;
 
   return (
     <ModalContainer ref={modalRef}>
       <ModalImage src={gif.url} alt={gif.title} title={gif.title} />
       <ModalTitleImage>{gif.title}</ModalTitleImage>
-      <ModalCloseButton onClick={handleCloseModal}>X</ModalCloseButton>
+      <ModalCloseButton onClick={handleCloseModal}>
+        <IoIosClose />
+      </ModalCloseButton>
     </ModalContainer>
   );
 };
