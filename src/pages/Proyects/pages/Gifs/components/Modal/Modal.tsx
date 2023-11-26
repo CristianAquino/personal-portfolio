@@ -1,26 +1,29 @@
 import { Gif } from "@app/pages/Proyects/pages/Gifs/models";
 import { getGifById } from "@app/pages/Proyects/pages/Gifs/services";
 import { useEffect, useRef, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+
+import { IoIosClose } from "react-icons/io";
 import {
   ModalCloseButton,
   ModalContainer,
   ModalImage,
   ModalTitleImage,
 } from "./style-components";
-import { IoIosClose } from "react-icons/io";
 
 export type ModalProps = {};
 
 const Modal = ({}: ModalProps) => {
   const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
   const [gif, setGif] = useState<Gif>({} as Gif);
   const modalRef = useRef<HTMLDialogElement>(null);
+  const navigate = useNavigate();
+  let location = useLocation();
 
   function handleCloseModal() {
-    navigate(-1);
+    navigate(location.pathname, { replace: true });
   }
+
   useEffect(() => {
     const dialog = modalRef.current;
     const id = searchParams.get("img");
