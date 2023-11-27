@@ -6,6 +6,7 @@ import "@app/App.css";
 
 const Proyects = lazy(() => import("@pages/Proyects/Proyects"));
 const Components = lazy(() => import("@pages/Components/Components"));
+const Draws = lazy(() => import("@pages/Draws/Draws"));
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         {/* anadimos el * para que cualquier ruta acceda mediante proyects/[page_name] */}
         <Route path={`${PUBLIC_ROUTE.PROYECTS}/*`} element={<Proyects />} />
         <Route path={`${PUBLIC_ROUTE.COMPONENTS}/*`} element={<Components />} />
+        <Route path={`${PUBLIC_ROUTE.DRAWS}/*`} element={<Draws />} />
       </RoutesWithNotFound>
     </BrowserRouter>
   );
