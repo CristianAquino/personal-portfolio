@@ -43,9 +43,6 @@ const CurveOutside = ({}: CurveOutsideProps) => {
         <img src="https://i.postimg.cc/sgH1whPj/tohru1.jpg" />
       </Cicle>
     </Card>
-    // https://www.youtube.com/watch?v=vhkhyPzJQa8
-    // https://www.youtube.com/watch?v=6vtg3Abf6PE
-    // https://www.youtube.com/watch?v=y1-QXNf4728
   );
 };
 
