@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "title": "Lorem ipsum",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Deserunt provident libero velit sapiente molestias. Necessitatibus delectus quae ut deserunt nemo non minima, ratione ipsum ad?",
+    "thumbnail": "https://i.postimg.cc/vHcSCyg5/img1.png",
+    "primary": "#ff4d4d"
+  },
+  {
+    "id": "2",
+    "title": "Lorem ipsum",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Deserunt provident libero velit sapiente molestias. Necessitatibus delectus quae ut deserunt nemo non minima, ratione ipsum ad?",
+    "thumbnail": "https://i.postimg.cc/q7dbtCmG/img2.png",
+    "primary": "#5fa7ff"
+  },
+  {
+    "id": "3",
+    "title": "Lorem ipsum",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Deserunt provident libero velit sapiente molestias. Necessitatibus delectus quae ut deserunt nemo non minima, ratione ipsum ad?",
+    "thumbnail": "https://i.postimg.cc/02FHs4DF/img3.png",
+    "primary": "#3ae374"
+  },
+  {
+    "id": "4",
+    "title": "Lorem ipsum",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Deserunt provident libero velit sapiente molestias. Necessitatibus delectus quae ut deserunt nemo non minima, ratione ipsum ad?",
+    "thumbnail": "https://i.postimg.cc/nhmSc11z/img4.png",
+    "primary": "#f0f"
+  }
+]
