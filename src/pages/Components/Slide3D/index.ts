@@ -1,0 +1,1 @@
+export { default as Slide3D } from './Slide3D';
