@@ -5,27 +5,30 @@ from{transform:translateX(0)}
 to{transform:translateX(-100%)}
 `;
 const List = styled.ul`
+  white-space: nowrap;
   margin-block: 1rem;
   animation: ${slide} 10s linear infinite;
-  display: inline-block;
 `;
 const Item = styled.li`
-  display: inline;
+  display: inline-flex;
   list-style: none;
   margin: 0 1rem;
   padding: 0.5rem 1rem;
   background-color: #333;
   border-radius: 0.5rem;
+  letter-spacing: 0.2rem;
 
   &:hover {
     background-color: #00a1ff;
+    cursor: pointer;
   }
 `;
 const Container = styled.div`
   position: relative;
   inline-size: 450px;
-  white-space: nowrap;
+  display: flex;
   overflow: hidden;
+  font-family: "Montserrat", sans-serif;
   mask-image: linear-gradient(
     to right,
     transparent,
