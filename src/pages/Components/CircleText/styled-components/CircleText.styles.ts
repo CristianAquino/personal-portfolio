@@ -2,8 +2,8 @@ import styled, { keyframes } from "styled-components";
 
 const Container = styled.div`
   position: relative;
-  inline-size: 200px;
-  block-size: 200px;
+  inline-size: 90vmin;
+  block-size: 90vmin;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -11,8 +11,8 @@ const Container = styled.div`
 `;
 const Image = styled.img`
   position: absolute;
-  inline-size: 150px;
-  block-size: 150px;
+  inline-size: 80%;
+  block-size: 80%;
   border-radius: 50%;
   object-fit: cover;
 `;
@@ -29,8 +29,8 @@ const Text = styled.p`
   & span {
     position: absolute;
     inset-inline-start: 50%;
-    font-size: 1.2rem;
-    transform-origin: 0 100px;
+    font-size: clamp(0.25rem, 0.2rem + 6vmin, 3.35rem);
+    transform-origin: 0 45vmin;
   }
 `;
 export { Container, Image, Text };
