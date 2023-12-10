@@ -1,0 +1,27 @@
+[
+  {
+    "id": "1",
+    "color": "#4267b2",
+    "text": "facebook"
+  },
+  {
+    "id": "2",
+    "color": "#1da1f2",
+    "text": "twitter"
+  },
+  {
+    "id": "3",
+    "color": "#e1306c",
+    "text": "instagram"
+  },
+  {
+    "id": "4",
+    "color": "#333",
+    "text": "github"
+  },
+  {
+    "id": "5",
+    "color": "#f00",
+    "text": "youtube"
+  }
+]
