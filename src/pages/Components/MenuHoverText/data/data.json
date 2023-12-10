@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "color1": "#a955ff",
+    "color2": "#ea51ff",
+    "text": "home"
+  },
+  {
+    "id": "2",
+    "color1": "#56ccf2",
+    "color2": "#2f80ed",
+    "text": "message"
+  },
+  {
+    "id": "3",
+    "color1": "#ff9966",
+    "color2": "#ff5e62",
+    "text": "favorite"
+  },
+  {
+    "id": "4",
+    "color1": "#80ff72",
+    "color2": "#7ee8fa",
+    "text": "videos"
+  },
+  {
+    "id": "5",
+    "color1": "#ffa9c6",
+    "color2": "#f434e2",
+    "text": "photos"
+  }
+]
