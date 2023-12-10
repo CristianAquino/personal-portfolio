@@ -5,13 +5,6 @@ const List = styled.ul`
   display: flex;
   gap: 1.5rem;
 `;
-const Icon = styled.span`
-  color: #777;
-  font-size: 1.75rem;
-  transition: 0.5s;
-  transition-delay: 0.25s;
-  position: absolute;
-`;
 const Text = styled.span`
   color: #fff;
   text-transform: capitalize;
@@ -36,11 +29,19 @@ const Item = styled.li<{ $i?: string; $j?: string }>`
   box-shadow: 0 10px 25px rgb(0 0 0 / 0.1);
   transition: 0.5s;
 
+  & svg {
+    color: #777;
+    font-size: 1.75rem;
+    transition: 0.5s;
+    transition-delay: 0.25s;
+    position: absolute;
+  }
+
   &:hover {
     inline-size: 180px;
     box-shadow: 0 10px 25px rgb(0 0 0 / 0);
   }
-  &:hover ${Icon} {
+  &:hover svg {
     scale: 0;
     color: #fff;
     transition-delay: 0s;
@@ -86,4 +87,4 @@ const Item = styled.li<{ $i?: string; $j?: string }>`
     opacity: 0;
   }
 `;
-export { Icon, Item, List, Text };
+export { Item, List, Text };

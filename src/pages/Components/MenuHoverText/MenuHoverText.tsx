@@ -6,7 +6,7 @@ import {
   IoVideocamOutline,
 } from "react-icons/io5";
 import datos from "./data/data.json";
-import { Icon, Item, List, Text } from "./styled-components";
+import { Item, List, Text } from "./styled-components";
 
 export type MenuHoverTextProps = {
   // types...
@@ -25,7 +25,7 @@ const MenuHoverText = ({}: MenuHoverTextProps) => {
     <List>
       {datos.map((item) => (
         <Item key={item.id} $i={item.color1} $j={item.color2}>
-          <Icon>{icons[parseInt(item.id) - 1]}</Icon>
+          {icons[parseInt(item.id) - 1]}
           <Text>{item.text}</Text>
         </Item>
       ))}
