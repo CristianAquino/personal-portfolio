@@ -1,0 +1,27 @@
+[
+  {
+    "id": "1",
+    "color": "#4267b2",
+    "text": "likes"
+  },
+  {
+    "id": "2",
+    "color": "#1da1f2",
+    "text": "followers"
+  },
+  {
+    "id": "3",
+    "color": "#e1306c",
+    "text": "messages"
+  },
+  {
+    "id": "4",
+    "color": "#333",
+    "text": "shares"
+  },
+  {
+    "id": "5",
+    "color": "#f00",
+    "text": "subscribers"
+  }
+]
