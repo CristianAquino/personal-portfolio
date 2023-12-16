@@ -1,4 +1,22 @@
-import { TagInput } from "..";
+import {
+  AnimatedFlexCard,
+  ButtonHover,
+  CardHover3D,
+  CardHoverFlip,
+  CardInvertBorder,
+  CircleText,
+  CurveOutside,
+  FadeoutEffect,
+  ImageMask,
+  MenuHoverText,
+  MultiSelect,
+  ScrollAnimation,
+  Skeleton,
+  Slide3D,
+  SocialMediaButton,
+  SocialMediaCounting,
+  TagInput,
+} from "..";
 
 export type HomeProps = {
   // types...
@@ -14,7 +32,23 @@ const Home = ({}: HomeProps) => {
         placeContent: "center",
       }}
     >
-      <TagInput />
+      {/* <TagInput /> */}
+      {/* <MultiSelect /> */}
+      {/* <CardHover3D /> */}
+      {/* <FadeoutEffect /> */}
+      {/* <AnimatedFlexCard /> */}
+      {/* <CurveOutside /> */}
+      {/* <Slide3D /> */}
+      {/* <CardHoverFlip /> */}
+      {/* <Skeleton /> */}
+      {/* <ImageMask /> */}
+      {/* <CardInvertBorder /> */}
+      {/* <ScrollAnimation /> */}
+      {/* <ButtonHover /> */}
+      {/* <MenuHoverText /> */}
+      {/* <CircleText /> */}
+      {/* <SocialMediaButton /> */}
+      <SocialMediaCounting />
     </div>
   );
 };
