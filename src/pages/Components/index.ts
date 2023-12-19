@@ -17,3 +17,4 @@ export * from "./MenuHoverText";
 export * from "./CircleText";
 export * from "./SocialMediaButton";
 export * from "./SocialMediaCounting";
+export * from "./Button";
