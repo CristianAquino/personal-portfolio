@@ -14,3 +14,9 @@ const ImageMask = ({}: ImageMaskProps) => {
 };
 
 export default ImageMask;
+// https://www.youtube.com/watch?v=vIaduyqHPfY
+// https://randomuser.me/documentation#howto
+// https://www.youtube.com/watch?v=LR4OcnYzY-0
+// https://www.youtube.com/watch?v=F3-lK_-PQr0
+// https://www.youtube.com/watch?v=LKIk_aCmw0U pensar en checkbox y ntchild
+// https://www.youtube.com/watch?v=nqnJx_v5VF8

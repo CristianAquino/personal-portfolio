@@ -1,5 +1,6 @@
 import {
   AnimatedFlexCard,
+  Button,
   ButtonHover,
   CardHover3D,
   CardHoverFlip,
@@ -10,6 +11,7 @@ import {
   ImageMask,
   MenuHoverText,
   MultiSelect,
+  MultiStepForm,
   ScrollAnimation,
   Skeleton,
   Slide3D,
@@ -48,7 +50,9 @@ const Home = ({}: HomeProps) => {
       {/* <MenuHoverText /> */}
       {/* <CircleText /> */}
       {/* <SocialMediaButton /> */}
-      <SocialMediaCounting />
+      {/* <SocialMediaCounting /> */}
+      {/* <Button /> */}
+      <MultiStepForm />
     </div>
   );
 };
