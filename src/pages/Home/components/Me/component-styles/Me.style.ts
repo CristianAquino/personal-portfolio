@@ -4,31 +4,54 @@ import styled from "styled-components";
 const Container = styled.section`
   block-size: 100vh;
   inline-size: 100%;
-  /* padding-block-start: clamp(48px, 8vw, 104px); */
   display: flex;
   align-items: center;
   gap: 1rem;
+  overflow: hidden;
   & > div {
+    inline-size: 100%;
+  }
+
+  @media (width<=320px) {
+    align-items: flex-start;
+    & > div {
+      flex-direction: column;
+    }
+  }
+`;
+// analizar left y right para refactorizar
+const Left = styled.section`
+  inline-size: 50%;
+  block-size: 100%;
+
+  @media (width<=320px) {
     inline-size: 100%;
   }
 `;
 const Right = styled.section`
   inline-size: 50%;
   block-size: 100%;
+  padding: 0 8vmin;
+
+  @media (width<=320px) {
+    inline-size: 100%;
+  }
 `;
-const Left = styled.section`
-  inline-size: 50%;
-  block-size: 100%;
+const Hello = styled.span`
+  --min: 1rem;
+  --med: calc(0.4rem + 2vw);
+  --max: 2rem;
+  font-size: clamp(var(--min), var(--med), var(--max));
 `;
 const Name = styled.h2`
-  --min: 1rem;
+  --min: 2rem;
   --med: calc(0.8rem + 8vw);
   --max: 4rem;
   font-weight: bold;
   font-size: clamp(var(--min), var(--med), var(--max));
 `;
 const Description = styled.p`
-  --min: 0.5rem;
+  --min: 1rem;
   --med: calc(0.4rem + 2vw);
   --max: 1.5rem;
   font-weight: 200;
@@ -44,9 +67,9 @@ const ContactList = styled.ul`
   flex-wrap: wrap;
 `;
 const ContactItem = styled.li<{ $color?: string }>`
-  --min: 0.5rem;
+  --min: 1rem;
   --med: calc(0.4rem + 2vw);
-  --max: 1rem;
+  --max: 1.5rem;
   --bg: ${(props) => props.$color};
   block-size: 8vmin;
   background-color: var(--bg, #fff);
@@ -58,8 +81,12 @@ const ContactItem = styled.li<{ $color?: string }>`
   gap: 0.5rem;
   font-size: clamp(var(--min), var(--med), var(--max));
   padding: 4vmin;
+
+  @media (width<=320px) {
+    padding: 6vmin;
+  }
   & svg {
-    --min: 1rem;
+    --min: 1.25rem;
     --med: calc(0.4rem + 2vw);
     --max: 2rem;
     font-size: clamp(var(--min), var(--med), var(--max));
@@ -69,19 +96,18 @@ const ContactItem = styled.li<{ $color?: string }>`
   }
 `;
 const Download = styled(Link)`
-  --min: 0.5rem;
+  --min: 1rem;
   --med: calc(0.4rem + 2vw);
-  --max: 1.25rem;
+  --max: 1.5rem;
   display: inline-block;
-  margin-block-start: 1rem;
+  inline-size: 100%;
   text-align: center;
   text-decoration: none;
-  font-weight: 500;
+  background-color: var(--primary, #fff);
+  border-radius: 96px;
+  color: #fff;
+  padding: 2vmin;
   font-size: clamp(var(--min), var(--med), var(--max));
-  padding: 1rem;
-  border-radius: 0.5rem;
-  background-color: var(--primary);
-  color: var(--darkColor);
 `;
 export {
   Container,
@@ -92,4 +118,5 @@ export {
   Description,
   Left,
   Right,
+  Hello,
 };

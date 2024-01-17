@@ -1,5 +1,4 @@
 "use client";
-
 import { notifyError, notifySuccess } from "@app/helpers";
 import {
   IoCopyOutline,
@@ -13,6 +12,7 @@ import {
   Container,
   Description,
   Download,
+  Hello,
   Left,
   Name,
   Right,
@@ -34,18 +34,23 @@ const Me = ({}: MeProps) => {
         console.log(err);
       });
   }
+
   return (
     <Container id="me">
-      <div>
+      <div
+        style={{
+          display: "flex",
+          maxBlockSize: "64vh",
+          gap: "1rem",
+        }}
+      >
         <Left>
-          <div>
-            <span style={{ fontSize: "2rem" }}>Hola soy </span>
-            <Name>Cristian Aquino</Name>
-            <Description>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere,
-              qui?
-            </Description>
-          </div>
+          <Hello>Hola soy </Hello>
+          <Name>Cristian Aquino</Name>
+          <Description>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere,
+            qui?
+          </Description>
           <ContactList>
             <ContactItem $color={"#6e5494"}>
               <IoLogoGithub />
@@ -68,7 +73,12 @@ const Me = ({}: MeProps) => {
             download CV
           </Download>
         </Left>
-        <Right></Right>
+        <Right>
+          <img
+            src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt=""
+          />
+        </Right>
       </div>
     </Container>
   );
