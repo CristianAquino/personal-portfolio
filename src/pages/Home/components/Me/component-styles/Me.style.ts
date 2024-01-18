@@ -108,18 +108,20 @@ const ContactItem = styled.li<{ $color?: string }>`
   }
 `;
 const Download = styled(Link)`
-  --min: 1rem;
+  --min: 0.5rem;
   --med: calc(0.4rem + 2vw);
   --max: 1.5rem;
   display: inline-block;
-  inline-size: 100%;
   text-align: center;
   text-decoration: none;
-  background-color: var(--primary, #fff);
-  border-radius: 96px;
-  color: #fff;
-  padding: 2vmin;
+  inline-size: 100%;
+  font-weight: 500;
   font-size: clamp(var(--min), var(--med), var(--max));
+  letter-spacing: 0.2rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--primary);
+  color: var(--darkColor);
 `;
 export {
   Container,
