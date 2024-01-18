@@ -7,9 +7,10 @@ const Container = styled.div`
   min-block-size: 100dvh;
   max-inline-size: 100vw;
   min-inline-size: 20rem;
-  padding-inline-end: clamp(var(--min), var(--med), var(--max));
-  /* padding-inline-start: calc(2rem + 64px); */
-  padding-inline-start: 8rem;
+  padding-inline: clamp(var(--min), var(--med), var(--max));
   position: relative;
+  @media (width>320px) {
+    padding-inline-start: 8rem;
+  }
 `;
 export { Container };
