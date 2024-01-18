@@ -3,29 +3,35 @@ import styled from "styled-components";
 
 const Container = styled.section`
   min-block-size: 100vh;
-  block-size: 100vh;
   inline-size: 100%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 1rem 0;
 `;
 const Title = styled.h2`
-  --min: 1rem;
+  --min: 2rem;
   --med: calc(0.8rem + 8vw);
   --max: 4rem;
   font-weight: bold;
   font-size: clamp(var(--min), var(--med), var(--max));
-  margin-block-end: 1rem;
 `;
 const Content = styled.div`
   display: flex;
   gap: 1rem;
   inline-size: 100%;
-  block-size: 50%;
+  block-size: 50vmin;
+  @media (width<=320px) {
+    flex-direction: column;
+    block-size: initial;
+  }
 `;
 const BoxImage = styled.picture`
   inline-size: 40%;
   block-size: 100%;
+  @media (width<=320px) {
+    inline-size: 100%;
+  }
 `;
 const ProjectImage = styled.img`
   inline-size: 100%;
@@ -38,11 +44,14 @@ const ProjectInfo = styled.div`
   block-size: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.25rem;
+  @media (width<=320px) {
+    inline-size: 100%;
+  }
 `;
 const InfoName = styled.h3`
-  --min: 1rem;
-  --med: calc(0.8rem + 6vw);
+  --min: 1.5rem;
+  --med: calc(0.8rem + 2vw);
   --max: 3rem;
   font-weight: 400;
   font-size: clamp(var(--min), var(--med), var(--max));
@@ -50,7 +59,7 @@ const InfoName = styled.h3`
   max-inline-size: 66ch;
 `;
 const InfoDescription = styled.p`
-  --min: 0.5rem;
+  --min: 1rem;
   --med: calc(0.4rem + 2vw);
   --max: 1.5rem;
   font-weight: 200;
@@ -71,8 +80,7 @@ const InfoList = styled.ul`
   max-inline-size: 66ch;
 `;
 const ItemInfoList = styled.li`
-  max-inline-size: 4rem;
-  /* max-inline-size: 10%; */
+  inline-size: 10vmin;
   & img {
     inline-size: 100%;
     block-size: 100%;
