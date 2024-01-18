@@ -10,6 +10,7 @@ import {
   ContactItem,
   ContactList,
   Container,
+  Content,
   Description,
   Download,
   Hello,
@@ -37,13 +38,7 @@ const Me = ({}: MeProps) => {
 
   return (
     <Container id="me">
-      <div
-        style={{
-          display: "flex",
-          maxBlockSize: "64vh",
-          gap: "1rem",
-        }}
-      >
+      <Content>
         <Left>
           <Hello>Hola soy </Hello>
           <Name>Cristian Aquino</Name>
@@ -79,7 +74,7 @@ const Me = ({}: MeProps) => {
             alt=""
           />
         </Right>
-      </div>
+      </Content>
     </Container>
   );
 };

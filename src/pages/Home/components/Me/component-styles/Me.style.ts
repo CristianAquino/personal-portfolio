@@ -14,11 +14,22 @@ const Container = styled.section`
 
   @media (width<=320px) {
     align-items: flex-start;
+    block-size: initial;
+    padding-block: 1rem;
     & > div {
       flex-direction: column;
     }
   }
 `;
+const Content = styled.div`
+  display: flex;
+  block-size: 64vh;
+  gap: 1rem;
+  @media (width<=320px) {
+    block-size: initial;
+  }
+`;
+
 // analizar left y right para refactorizar
 const Left = styled.section`
   inline-size: 50%;
@@ -35,6 +46,7 @@ const Right = styled.section`
 
   @media (width<=320px) {
     inline-size: 100%;
+    padding: initial;
   }
 `;
 const Hello = styled.span`
@@ -111,6 +123,7 @@ const Download = styled(Link)`
 `;
 export {
   Container,
+  Content,
   ContactList,
   ContactItem,
   Download,
