@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.section`
-  min-block-size: 100vh;
+  min-block-size: 100vb;
   inline-size: 100%;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@ const Container = styled.section`
 `;
 const Title = styled.h2`
   --min: 2rem;
-  --med: calc(0.8rem + 8vw);
+  --med: calc(0.8rem + 8vi);
   --max: 4rem;
   font-weight: bold;
   font-size: clamp(var(--min), var(--med), var(--max));
@@ -51,7 +51,7 @@ const ProjectInfo = styled.div`
 `;
 const InfoName = styled.h3`
   --min: 1.5rem;
-  --med: calc(0.8rem + 2vw);
+  --med: calc(0.8rem + 2vi);
   --max: 3rem;
   font-weight: 400;
   font-size: clamp(var(--min), var(--med), var(--max));
@@ -60,7 +60,7 @@ const InfoName = styled.h3`
 `;
 const InfoDescription = styled.p`
   --min: 1rem;
-  --med: calc(0.4rem + 2vw);
+  --med: calc(0.4rem + 2vi);
   --max: 1.5rem;
   font-weight: 200;
   font-size: clamp(var(--min), var(--med), var(--max));
@@ -89,7 +89,7 @@ const ItemInfoList = styled.li`
 `;
 const LinkMore = styled(Link)`
   --min: 0.5rem;
-  --med: calc(0.4rem + 2vw);
+  --med: calc(0.4rem + 2vi);
   --max: 1.5rem;
   display: inline-block;
   text-align: center;
