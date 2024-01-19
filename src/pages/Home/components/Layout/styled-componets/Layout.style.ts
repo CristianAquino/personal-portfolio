@@ -5,11 +5,11 @@ const Container = styled.div`
   --med: calc(0.4rem + 2vw);
   --max: 2rem;
   min-block-size: 100dvh;
-  max-inline-size: 100vw;
+  max-inline-size: 100vi;
   min-inline-size: 20rem;
   padding-inline: clamp(var(--min), var(--med), var(--max));
   position: relative;
-  @media (width>320px) {
+  @media (width>=992px) {
     padding-inline-start: 8rem;
   }
 `;
