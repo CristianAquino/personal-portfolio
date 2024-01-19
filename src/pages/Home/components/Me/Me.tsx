@@ -10,13 +10,13 @@ import {
   ContactItem,
   ContactList,
   Container,
-  Content,
+  ContentDatos,
+  ContentImagen,
+  ContentLinks,
   Description,
   Download,
   Hello,
-  Left,
   Name,
-  Right,
 } from "./component-styles";
 
 export type MeProps = {
@@ -38,43 +38,42 @@ const Me = ({}: MeProps) => {
 
   return (
     <Container id="me">
-      <Content>
-        <Left>
-          <Hello>Hola soy </Hello>
-          <Name>Cristian Aquino</Name>
-          <Description>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere,
-            qui?
-          </Description>
-          <ContactList>
-            <ContactItem $color={"#6e5494"}>
-              <IoLogoGithub />
-              <span>Github</span>
-            </ContactItem>
-            <ContactItem $color={"#0077b5"}>
-              <IoLogoLinkedin />
-              <span>Linkedin</span>
-            </ContactItem>
-            <ContactItem
-              onClick={() => copyEmail("ycristian10@gmail.com")}
-              $color={"#828282"}
-            >
-              <IoMailOutline />
-              <span>ycristian10@gmail.com</span>
-              <IoCopyOutline />
-            </ContactItem>
-          </ContactList>
-          <Download to={"/"} aria-label="download CV">
-            download CV
-          </Download>
-        </Left>
-        <Right>
-          <img
-            src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            alt=""
-          />
-        </Right>
-      </Content>
+      <ContentDatos>
+        <Hello>Hola soy </Hello>
+        <Name>Cristian Aquino</Name>
+        <Description>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, qui?
+        </Description>
+      </ContentDatos>
+      <ContentLinks>
+        <ContactList>
+          <ContactItem $color={"#6e5494"}>
+            <IoLogoGithub />
+            <span>Github</span>
+          </ContactItem>
+          <ContactItem $color={"#0077b5"}>
+            <IoLogoLinkedin />
+            <span>Linkedin</span>
+          </ContactItem>
+          <ContactItem
+            onClick={() => copyEmail("ycristian10@gmail.com")}
+            $color={"#828282"}
+          >
+            <IoMailOutline />
+            <span>ycristian10@gmail.com</span>
+            <IoCopyOutline />
+          </ContactItem>
+        </ContactList>
+        <Download to={"/"} aria-label="download CV">
+          download CV
+        </Download>
+      </ContentLinks>
+      <ContentImagen>
+        <img
+          src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt=""
+        />
+      </ContentImagen>
     </Container>
   );
 };
