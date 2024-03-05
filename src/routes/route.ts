@@ -13,7 +13,7 @@ const API_ROUTE = {
 export const PRIVATE_ROUTE = {};
 export const PUBLIC_ROUTE = {
   HOME: "/",
-  PROYECTS: "/proyects",
+  PROJECTS: "/projects",
   COMPONENTS: "/components",
 };
 export const SERVICE_ROUTE = {
