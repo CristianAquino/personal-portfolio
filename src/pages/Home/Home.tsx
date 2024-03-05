@@ -4,6 +4,7 @@ import { PUBLIC_ROUTE } from "@app/routes";
 import { Route } from "react-router-dom";
 import { Layout } from "./components";
 import { Suspense, lazy } from "react";
+import { Loading } from "@app/components";
 
 const Principal = lazy(() => import("./components/Principal/Principal"));
 const Projects = lazy(() => import("./pages/Projects/Projects"));
@@ -22,7 +23,7 @@ const Home = ({}: HomeProps) => {
         <Route
           index
           element={
-            <Suspense fallback={<h1>Load Principal</h1>}>
+            <Suspense fallback={<Loading />}>
               <Principal />
             </Suspense>
           }
@@ -30,7 +31,7 @@ const Home = ({}: HomeProps) => {
         <Route
           path={PUBLIC_ROUTE.PROJECTS}
           element={
-            <Suspense fallback={<h1>Load Projets</h1>}>
+            <Suspense fallback={<Loading />}>
               <Projects />
             </Suspense>
           }
