@@ -1,0 +1,146 @@
+{
+  "user": {
+    "name": "Cristian Aquino Limache",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl ut sagittis feugiat, nisl nisl aliquet nisl, eget aliquet nisl nisl eu nisl. Sed euismod",
+    "avatar": "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "social": [
+      {
+        "name": "Github",
+        "url": "https://github.com/CristianAquino",
+        "color": "#6e5494"
+      },
+      {
+        "name": "Linkendin",
+        "url": "https://www.linkedin.com/in/cristian-aquino-limache-747189269/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BrzDI%2FalmQ6q91eTVYnZ7BQ%3D%3D",
+        "color": "#0077b5"
+      }
+    ],
+    "email": {
+      "send": "ycristian10@gmail.com",
+      "color": "#828282"
+    },
+    "curriculum": {
+      "url": "https://github.com/CristianAquino"
+    }
+  },
+  "projects": [
+    {
+      "name": "Project with React",
+      "description": "This is a project using React. I have created this project using the create-react-app command.",
+      "technologies": [
+        {
+          "name": "html",
+          "icon": "/public/icons/html5.svg"
+        },
+        {
+          "name": "Angular",
+          "icon": "/public/icons/react.svg"
+        },
+        {
+          "name": "CSS",
+          "icon": "/public/icons/css3.svg"
+        }
+      ],
+      "url": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "image": {
+        "thumbnail": "https://cdn.freebiesupply.com/logos/large/2x/react-1-logo-png-transparent.png"
+      }
+    },
+    {
+      "name": "Project with Angular",
+      "description": "This is a project using Angular. I have created this project using the create-angular-app command.",
+      "technologies": [
+        {
+          "name": "html",
+          "icon": "/public/icons/html5.svg"
+        },
+        {
+          "name": "Angular",
+          "icon": "/public/icons/react.svg"
+        },
+        {
+          "name": "CSS",
+          "icon": "/public/icons/css3.svg"
+        }
+      ],
+      "url": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "image": {
+        "thumbnail": "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/21_Angular_logo_logos-512.png"
+      }
+    }
+  ],
+  "skills": {
+    "languages": [
+      {
+        "name": "JavaScript",
+        "icon": "/public/icons/javascript.svg"
+      },
+      {
+        "name": "TypeScript",
+        "icon": "/public/icons/typescript.svg"
+      },
+      {
+        "name": "HTML5",
+        "icon": "/public/icons/html5.svg"
+      },
+      {
+        "name": "CSS3",
+        "icon": "/public/icons/css3.svg"
+      },
+      {
+        "name": "Python",
+        "icon": "/public/icons/python.svg"
+      },
+      {
+        "name": "SQL",
+        "icon": "/public/icons/sql.svg"
+      },
+      {
+        "name": "C#",
+        "icon": "/public/icons/csharp.svg"
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "React",
+        "icon": "/public/icons/react.svg"
+      },
+      {
+        "name": "Redux",
+        "icon": "/public/icons/redux.svg"
+      },
+      {
+        "name": "styled-components",
+        "icon": "/public/icons/styled.svg"
+      },
+      {
+        "name": "Node.js",
+        "icon": "/public/icons/nodejs.svg"
+      }
+    ],
+    "clouds": [
+      {
+        "name": "Amazon Web Service",
+        "icon": "/public/icons/aws.svg"
+      },
+      {
+        "name": "Cloudinary",
+        "icon": "/public/icons/cloudinary.svg"
+      }
+    ],
+    "tools": [
+      {
+        "name": "Figma",
+        "icon": "/public/icons/figma.svg"
+      },
+      {
+        "name": "Vite",
+        "icon": "/public/icons/vite.svg"
+      },
+      {
+        "name": "Git",
+        "icon": "/public/icons/git.svg"
+      }
+    ]
+  }
+}

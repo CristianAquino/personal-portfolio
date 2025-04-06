@@ -6,9 +6,12 @@
 * {
   margin: 0;
   padding: 0;
+  /* scroll smooth */
+  scroll-behavior: smooth;
+  min-width: 0;
 }
 body {
-  line-height: 1.5;
+  line-height: 1.2;
   -webkit-font-smoothing: antialiased;
 }
 input,
@@ -17,15 +20,20 @@ textarea,
 select {
   font: inherit;
 }
-p,
+p {
+  /* overflow-wrap: break-word; */
+  text-wrap: pretty;
+}
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  overflow-wrap: break-word;
+  /* overflow-wrap: break-word; */
+  text-wrap: balance;
 }
+
 #root,
 #__next {
   isolation: isolate;
