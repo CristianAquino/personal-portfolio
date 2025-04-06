@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import { Me, Projects } from "..";
+import { userPortfolio } from "../../services";
 import Skills from "../Skills/Skills";
 
 export type PrincipalProps = {
@@ -6,11 +8,19 @@ export type PrincipalProps = {
 };
 
 const Principal = ({}: PrincipalProps) => {
+  const [data, setData] = useState<any>(null);
+
+  useEffect(() => {
+    userPortfolio().then((data) => {
+      setData(data);
+    });
+  }, []);
+
   return (
     <>
-      <Me />
-      <Projects />
-      <Skills />
+      <Me user={data?.user} />
+      <Projects projects={data?.projects} />
+      <Skills skills={data?.skills} />
     </>
   );
 };

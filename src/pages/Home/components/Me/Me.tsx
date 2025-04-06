@@ -18,12 +18,14 @@ import {
   Hello,
   Name,
 } from "./component-styles";
+import { User } from "../../models";
 
 export type MeProps = {
   // types...
+  user: User;
 };
 
-const Me = ({}: MeProps) => {
+const Me = ({ user }: MeProps) => {
   function copyEmail(text: string) {
     navigator.clipboard
       .writeText(text)
@@ -40,10 +42,8 @@ const Me = ({}: MeProps) => {
     <Container id="me">
       <ContentDatos>
         <Hello>Hola soy </Hello>
-        <Name>Cristian Aquino</Name>
-        <Description>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, qui?
-        </Description>
+        <Name>{user?.name}</Name>
+        <Description>{user?.description}</Description>
       </ContentDatos>
       <ContentLinks>
         <ContactList>
@@ -56,23 +56,20 @@ const Me = ({}: MeProps) => {
             <span>Linkedin</span>
           </ContactItem>
           <ContactItem
-            onClick={() => copyEmail("ycristian10@gmail.com")}
-            $color={"#828282"}
+            onClick={() => copyEmail(`${user?.email.send}`)}
+            $color={user?.email.color}
           >
             <IoMailOutline />
-            <span>ycristian10@gmail.com</span>
+            <span>{user?.email.send}</span>
             <IoCopyOutline />
           </ContactItem>
         </ContactList>
-        <Download to={"/"} aria-label="download CV">
+        <Download to={user?.curriculum.url} aria-label="download CV">
           download CV
         </Download>
       </ContentLinks>
       <ContentImagen>
-        <img
-          src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt=""
-        />
+        <img src={user?.avatar} alt={user?.name} />
       </ContentImagen>
     </Container>
   );

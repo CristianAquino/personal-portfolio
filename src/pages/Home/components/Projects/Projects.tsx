@@ -1,7 +1,6 @@
 "use client";
-
 import { PUBLIC_ROUTE } from "@app/routes";
-import data from "../../../../data/data.json";
+import { Project } from "../../models";
 import {
   BoxImage,
   Container,
@@ -17,17 +16,18 @@ import {
 } from "./styled-components";
 export type ProjectsProps = {
   // types...
+  projects: Project[];
 };
 
-const Projects = ({}: ProjectsProps) => {
+const Projects = ({ projects }: ProjectsProps) => {
   return (
     <Container id="projects">
       <Title>Projects</Title>
-      {data.projects.map((project) => (
+      {projects?.map((project) => (
         <Content key={project.name}>
           <BoxImage>
             <ProjectImage
-              src={project.image.thumbs}
+              src={project.image.thumbnail}
               alt={project.name}
               title={project.name}
             />
@@ -36,7 +36,7 @@ const Projects = ({}: ProjectsProps) => {
             <InfoName>{project.name}</InfoName>
             <InfoDescription>{project.description}</InfoDescription>
             <InfoList>
-              {project.tools.map((tech) => (
+              {project.technologies.map((tech) => (
                 <ItemInfoList title={tech.name}>
                   <img src={tech.icon} />
                 </ItemInfoList>
