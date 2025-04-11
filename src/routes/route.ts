@@ -15,6 +15,7 @@ export const PUBLIC_ROUTE = {
   HOME: "/",
   PROJECTS: "/projects",
   COMPONENTS: "/components",
+  INPUT_FILE: "/input",
 };
 export const SERVICE_ROUTE = {
   ALLPRODUCTS: `${API_ROUTE.PRODUCT}/all-products`,

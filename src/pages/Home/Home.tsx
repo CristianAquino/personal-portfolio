@@ -5,6 +5,7 @@ import { Route } from "react-router-dom";
 import { Layout } from "./components";
 import { Suspense, lazy } from "react";
 import { Loading } from "@app/components";
+import { InputFile } from "../InputFile";
 
 const Principal = lazy(() => import("./components/Principal/Principal"));
 const Projects = lazy(() => import("./pages/Projects/Projects"));
@@ -33,6 +34,14 @@ const Home = ({}: HomeProps) => {
           element={
             <Suspense fallback={<Loading />}>
               <Projects />
+            </Suspense>
+          }
+        />
+        <Route
+          path={PUBLIC_ROUTE.INPUT_FILE}
+          element={
+            <Suspense fallback={<Loading />}>
+              <InputFile />
             </Suspense>
           }
         />
