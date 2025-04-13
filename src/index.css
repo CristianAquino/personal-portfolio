@@ -1,5 +1,6 @@
 @import url("fontMontserrat.css");
-:root {
+@import "tailwindcss";
+/* :root {
   color-scheme: light dark;
   color: var(--darkColor);
   background-color: var(--darkMode);
@@ -26,4 +27,4 @@ body,
     --darkMode: #fff;
     --darkColor: #242424;
   }
-}
+} */

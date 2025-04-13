@@ -4,6 +4,7 @@ import react from "@vitejs/plugin-react";
 // https://vitejs.dev/config/
 // alias path
 import { resolve } from "path";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   resolve: {
@@ -25,5 +26,5 @@ export default defineConfig({
       "@style-components": resolve(__dirname, "./src/style-components"),
     },
   },
-  plugins: [react()],
+  plugins: [react(), tailwindcss()],
 });
