@@ -10,6 +10,14 @@ const InputFile = ({}: InputFileProps) => {
   const [fileState, setFiles] = useState<any>([]);
   const refFile = useRef<HTMLInputElement>(null);
   const text = fileState.length == 0 ? "upload files" : "more files";
+  const [open, setOpen] = useState(false);
+
+  function handleClose() {
+    setOpen(false);
+  }
+  function handleOpen() {
+    setOpen(true);
+  }
 
   function handleClick() {
     const files = refFile.current;
@@ -20,6 +28,7 @@ const InputFile = ({}: InputFileProps) => {
     const filter = fileState.filter((file: any) => file.name != name);
     setFiles(filter);
     refFile.current!.value = "";
+    setOpen(false);
   }
 
   function handleAdd(e: ChangeEvent<HTMLInputElement>) {
@@ -48,6 +57,7 @@ const InputFile = ({}: InputFileProps) => {
   function handleReset() {
     refFile.current!.value = "";
     setFiles([]);
+    setOpen(false);
   }
 
   function handleChange(e: ChangeEvent<HTMLInputElement>, name: string) {
@@ -87,9 +97,11 @@ const InputFile = ({}: InputFileProps) => {
             name={file.name}
             onDelete={handleDelete}
             onChange={handleChange}
+            onView={handleOpen}
           />
         ))}
       {fileState.length > 0 && <button onClick={handleReset}>reset</button>}
+      {open && <Modal onClose={handleClose} />}
     </div>
   );
 };
@@ -101,11 +113,13 @@ const Imagene = ({
   name,
   onDelete,
   onChange,
+  onView,
 }: {
   url: string;
   name: string;
   onDelete: (id: string) => void;
   onChange: (e: ChangeEvent<HTMLInputElement>, name: string) => void;
+  onView: () => void;
 }) => {
   const refImage = useRef<HTMLInputElement>(null);
 
@@ -114,14 +128,8 @@ const Imagene = ({
     files?.click();
   }
 
-  // function handleChange(e: ChangeEvent<HTMLInputElement>) {
-  //   const files = e.target.files;
-  //   console.log(files);
-  // }
-
   return (
     <>
-      <span>{name}</span>
       <img src={url} alt={name} style={{ inlineSize: "200px" }} />
       <input
         ref={refImage}
@@ -129,9 +137,18 @@ const Imagene = ({
         style={{ display: "none" }}
         onChange={(e) => onChange(e, name)}
       />
+      <span>{name}</span>
       <button onClick={handleClick}>change</button>
       <button onClick={() => onDelete(name)}>delete</button>
-      <button>view</button>
+      <button onClick={onView}>view</button>
     </>
+  );
+};
+
+const Modal = ({ onClose }: { onClose: () => void }) => {
+  return (
+    <div>
+      <button onClick={onClose}>close</button>
+    </div>
   );
 };
