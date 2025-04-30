@@ -1,14 +1,15 @@
 "use client";
+import { Loading } from "@app/components";
 import { RoutesWithNotFound } from "@app/guards";
 import { PUBLIC_ROUTE } from "@app/routes";
-import { Route } from "react-router-dom";
-import { Layout } from "./components";
 import { Suspense, lazy } from "react";
-import { Loading } from "@app/components";
-import { InputFile } from "../InputFile";
+import { Route } from "react-router-dom";
+import { ImageProvider } from "../InputFile/contexts";
+import { Layout } from "./components";
 
 const Principal = lazy(() => import("./components/Principal/Principal"));
 const Projects = lazy(() => import("./pages/Projects/Projects"));
+const InputFile = lazy(() => import("../InputFile/InputFile"));
 
 export type HomeProps = {
   // types...
@@ -41,7 +42,9 @@ const Home = ({}: HomeProps) => {
           path={PUBLIC_ROUTE.INPUT_FILE}
           element={
             <Suspense fallback={<Loading />}>
-              <InputFile />
+              <ImageProvider>
+                <InputFile />
+              </ImageProvider>
             </Suspense>
           }
         />

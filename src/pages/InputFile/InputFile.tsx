@@ -1,82 +1,24 @@
 "use client";
 
-import { ChangeEvent, useRef, useState } from "react";
+import { ChangeEvent, useContext, useEffect, useRef, useState } from "react";
+import { ImageContext } from "./contexts";
+import { useImageActions, useModal } from "./hooks";
+import { ImageModel } from "./models";
+import { sharinInformationNameImage, TYPES } from "./services";
 
 export type InputFileProps = {
   // types...
 };
 
 const InputFile = ({}: InputFileProps) => {
-  const [fileState, setFiles] = useState<any>([]);
-  const refFile = useRef<HTMLInputElement>(null);
-  const text = fileState.length == 0 ? "upload files" : "more files";
-  const [open, setOpen] = useState(false);
-
-  function handleClose() {
-    setOpen(false);
-  }
-  function handleOpen() {
-    setOpen(true);
-  }
+  const { state, onAdd, onReset, onDelete, onChange, refFile } =
+    useImageActions();
+  const { isOpen, openModal, closeModal } = useModal();
+  const text = state.length == 0 ? "upload files" : "more files";
 
   function handleClick() {
     const files = refFile.current;
     files?.click();
-  }
-
-  function handleDelete(name: string) {
-    const filter = fileState.filter((file: any) => file.name != name);
-    setFiles(filter);
-    refFile.current!.value = "";
-    setOpen(false);
-  }
-
-  function handleAdd(e: ChangeEvent<HTMLInputElement>) {
-    const files = e.target.files;
-
-    if (!files) return;
-
-    const new_files = Array.from(files).map((file) => {
-      let url = URL.createObjectURL(file);
-      return {
-        id: crypto.randomUUID(),
-        url,
-        name: file.name.split(".")[0],
-        extension: file.name.split(".").pop(),
-      };
-    });
-
-    if (files.length > 0) {
-      const filter = new_files.filter((file) =>
-        fileState.every((ele: any) => ele.name != file.name)
-      );
-      setFiles((prev: any) => [...prev, ...filter]);
-    }
-  }
-
-  function handleReset() {
-    refFile.current!.value = "";
-    setFiles([]);
-    setOpen(false);
-  }
-
-  function handleChange(e: ChangeEvent<HTMLInputElement>, name: string) {
-    const files = e.target.files;
-    if (!files) return;
-    setFiles(
-      fileState.map((file: any) => {
-        if (file.name == name) {
-          let url = URL.createObjectURL(files[0]);
-          return {
-            ...file,
-            url,
-            name: files[0].name.split(".")[0],
-            extension: files[0].name.split(".").pop(),
-          };
-        }
-        return;
-      })
-    );
   }
 
   return (
@@ -85,40 +27,37 @@ const InputFile = ({}: InputFileProps) => {
       <input
         ref={refFile}
         type="file"
-        // multiple
+        multiple
         style={{ display: "none" }}
-        onChange={handleAdd}
+        onChange={onAdd}
       />
-      {fileState.length > 0 &&
-        fileState.map((file: any) => (
-          <Imagene
+      {state.length > 0 &&
+        state.map((file: any) => (
+          <Image
             key={file?.id}
-            url={file.url}
-            name={file.name}
-            onDelete={handleDelete}
-            onChange={handleChange}
-            onView={handleOpen}
+            data={file}
+            onDelete={onDelete}
+            onChange={onChange}
+            onView={openModal}
           />
         ))}
-      {fileState.length > 0 && <button onClick={handleReset}>reset</button>}
-      {open && <Modal onClose={handleClose} />}
+      {state.length > 0 && <button onClick={onReset}>reset</button>}
+      {isOpen && <Modal onClose={closeModal} />}
     </div>
   );
 };
 
 export default InputFile;
 
-const Imagene = ({
-  url,
-  name,
+const Image = ({
+  data,
   onDelete,
   onChange,
   onView,
 }: {
-  url: string;
-  name: string;
+  data: ImageModel;
   onDelete: (id: string) => void;
-  onChange: (e: ChangeEvent<HTMLInputElement>, name: string) => void;
+  onChange: (e: ChangeEvent<HTMLInputElement>, id: string) => void;
   onView: () => void;
 }) => {
   const refImage = useRef<HTMLInputElement>(null);
@@ -127,28 +66,65 @@ const Imagene = ({
     const files = refImage.current;
     files?.click();
   }
+  const handleSharedNameImage = (id: string) => {
+    onView();
+    sharinInformationNameImage.setObservable = id;
+  };
 
   return (
     <>
-      <img src={url} alt={name} style={{ inlineSize: "200px" }} />
+      <img src={data.url} alt={data.name} style={{ inlineSize: "200px" }} />
       <input
         ref={refImage}
         type="file"
         style={{ display: "none" }}
-        onChange={(e) => onChange(e, name)}
+        onChange={(e) => onChange(e, data.id)}
       />
-      <span>{name}</span>
+      <span>{data.name}</span>
       <button onClick={handleClick}>change</button>
-      <button onClick={() => onDelete(name)}>delete</button>
-      <button onClick={onView}>view</button>
+      <button onClick={() => onDelete(data.id)}>delete</button>
+      <button onClick={() => handleSharedNameImage(data.id)}>view</button>
     </>
   );
 };
 
 const Modal = ({ onClose }: { onClose: () => void }) => {
+  const { state, dispatch } = useContext(ImageContext);
+  const subscription = sharinInformationNameImage.getObservable;
+  const [index, setIndex] = useState(0);
+  const image = state[index];
+
+  const selectNewIndexImage = (index: number, next = true) => {
+    const nextIndex = next
+      ? (index + 1) % state.length
+      : (index - 1 + state.length) % state.length;
+    setIndex(nextIndex);
+  };
+
+  useEffect(() => {
+    subscription.subscribe((data: string) => {
+      if (data) {
+        const idx = state.findIndex((ele: ImageModel) => ele.id == data);
+        setIndex(idx);
+      }
+    });
+  }, []);
+
   return (
     <div>
+      {image && (
+        <img src={image.url} alt={image.name} style={{ inlineSize: "200px" }} />
+      )}
       <button onClick={onClose}>close</button>
+      <button onClick={() => selectNewIndexImage(index, false)}>left</button>
+      <button onClick={() => selectNewIndexImage(index)}>right</button>
+      <button
+        onClick={() => {
+          dispatch({ type: TYPES.remove_file, payload: { id: image.id } });
+        }}
+      >
+        delete
+      </button>
     </div>
   );
 };
