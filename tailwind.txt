@@ -1,0 +1,13 @@
+para este proyecto se tuvo que instalar como devDependency lo siguiente
+-tailwindcss
+-postcss    
+-@tailwindcss/postcss
+-autoprefixer
+
+se tuvo que crear archivos de configuracion como tailwind.config.css y postcss.config.css
+
+en vite.config.ts no se tuvo que agregar e importar nada
+
+en el archivo index se tuvo que agregar unicamente
+@import "tailwindcss";
+
