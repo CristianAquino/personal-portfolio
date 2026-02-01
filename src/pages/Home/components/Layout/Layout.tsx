@@ -1,6 +1,5 @@
 "use client";
 import { Outlet } from "react-router-dom";
-import { Container } from "./styled-componets";
 import { Navigator } from "..";
 import { Helmet } from "react-helmet";
 
@@ -8,15 +7,15 @@ export type LayoutProps = {
   // types...
 };
 
-const Layout: React.FC<LayoutProps> = ({}) => {
+const Layout = ({}: LayoutProps) => {
   return (
-    <Container>
+    <main className="min-h-dvh min-w-xs max-w-5xl px-4 mx-auto">
       {/* SEO */}
       <Helmet>
-        <title>Home | Portfolio</title>
+        <title>Portfolio | Home</title>
         <meta
           name="description"
-          content="main page of the protfolio project created by CRdev"
+          content="main page of the portfolio project created by CRdev"
         />
         <link
           rel="apple-touch-icon"
@@ -44,9 +43,9 @@ const Layout: React.FC<LayoutProps> = ({}) => {
         <meta name="msapplication-TileColor" content="#2d89ef" />
         <meta name="theme-color" content="#ffffff" />
       </Helmet>
-      <Navigator />
+      {/* <Navigator /> */}
       <Outlet />
-    </Container>
+    </main>
   );
 };
 

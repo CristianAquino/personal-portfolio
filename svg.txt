@@ -1,0 +1,9 @@
+para utilizar svg se instalo como dev dependency
+-vite-plugin-react-rich-svg
+la configuracion se realizo en vite config y tambien en vite-env.ts agregando lo siguiente
+// Caveat: referencing our plugin first will ensure vite types do not overlap
+
+/// <reference types="vite-plugin-react-rich-svg/client" />
+
+para su importacion como componente se utilizo 
+import Example from ../example.svg?component

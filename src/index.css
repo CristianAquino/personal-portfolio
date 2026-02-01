@@ -1,4 +1,4 @@
-@import url("fontMontserrat.css");
+/* @import url("fontMontserrat.css");
 :root {
   color-scheme: light dark;
   color: var(--darkColor);
@@ -26,4 +26,60 @@ body,
     --darkMode: #fff;
     --darkColor: #242424;
   }
+} */
+@import "tailwindcss";
+@theme {
+  --breakpoint-xs: 320px;
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-primary-txt: var(--primary-txt);
+  --color-secondary-txt: var(--secondary-txt);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+}
+@layer base {
+  :root {
+    --primary: #1567ff;
+    --secondary: #0f172a;
+    --primary-txt: #f1f5f9;
+    --secondary-txt: #94a3b8;
+    --accent: #38bdf8;
+    --border: #334155;
+    --success: #10b981;
+    --danger: #ef4444;
+  }
+}
+@media (prefers-color-schema: dark) {
+  :root {
+    --primary: #1567ff;
+    --secondary: #0f172a;
+    --primary-txt: #f1f5f9;
+    --secondary-txt: #94a3b8;
+    --accent: #38bdf8;
+    --border: #334155;
+    --success: #10b981;
+    --danger: #ef4444;
+  }
+}
+.dark {
+  --primary: #1567ff;
+  --secondary: #0f172a;
+  --primary-txt: #f1f5f9;
+  --secondary-txt: #94a3b8;
+  --accent: #38bdf8;
+  --border: #334155;
+  --success: #10b981;
+  --danger: #ef4444;
+}
+.light {
+  --primary: #1567ff;
+  --secondary: #f9fafb;
+  --primary-txt: #1e293b;
+  --secondary-txt: #64748b;
+  --accent: #93c5fd;
+  --border: #e2e8f0;
+  --success: #22c55e;
+  --danger: #dc2626;
 }
